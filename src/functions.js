@@ -38,4 +38,25 @@ const columnDelete =  n => matrix =>
     matrix.map(row => row.filter((_, index) => index !== n));
 
 
+const swap = (file, n, m) => {
+    // TODO: Implementar función
+}
+
+const rowDelete = (file, n) => {
+    // TODO: Implementar función
+}
+
+const insertrow = (file, n, row) => {
+    // TODO: Implementar función
+}
+
+const insertcolumn = (file, n, column) => {
+    // TODO: Implementar función
+}
+
+const tohtmltable = (file) => {
+    // TODO: Implementar función
+}
+
+
 module.exports = { rowsToColumns, columnsToRows, columnDelete};
