@@ -1,3 +1,4 @@
+const _ = require("lodash");
 
 // TODO: revisar si es posible omitir las declaraciones y remplazarlos completamente por transpose
 
@@ -46,17 +47,36 @@ const rowDelete = (file, n) => {
     // TODO: Implementar función
 }
 
-const insertrow = (file, n, row) => {
+const insertRow = (file, n, row) => {
     // TODO: Implementar función
 }
 
-const insertcolumn = (file, n, column) => {
+// Only positive n
+// const insertColumn = _.curry((file, n, column) => 
+//     file.map((row, index) => [...row.slice(0, n), column[index], ...row.slice(n)])
+// );
+
+// Positive or negative n
+const insertColumn = _.curry((file, n, column) => 
+    file.map((row, index) => {
+        const pos = n < 0 ? row.length + n + 1 : n;
+        return [...row.slice(0, pos), column[index], ...row.slice(pos)]
+    })
+);
+
+const insertColumnHead = insertColumn(_, 0);
+const insertColumnTail = insertColumn(_, -1);
+
+const toHtmlTable = (file) => {
     // TODO: Implementar función
 }
 
-const tohtmltable = (file) => {
-    // TODO: Implementar función
-}
 
-
-module.exports = { rowsToColumns, columnsToRows, columnDelete};
+module.exports = { 
+    rowsToColumns, 
+    columnsToRows, 
+    columnDelete, 
+    insertColumn, 
+    insertColumnHead, 
+    insertColumnTail,
+};
