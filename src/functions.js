@@ -38,17 +38,26 @@ const columnDelete =  n => matrix =>
     matrix.map(row => row.filter((_, index) => index !== n));
 
 
-const swap = (file, n, m) => {
-    // TODO: Implementar función
-}
+const swap = _.curry((n, m, matrix) =>
+    matrix.map(row => {
+        const newRow = [...row];
+        [newRow[n], newRow[m]] = [newRow[m], newRow[n]];
+        return newRow;
+    })
+);  // Matriz de entrada debe ser un arreglo de arreglos
 
-const rowDelete = (file, n) => {
-    // TODO: Implementar función
-}
+const rowDelete = _.curry((index, matrix) =>
+    matrix.filter((fila, i) => i !== index)
+  );
 
-const insertrow = (file, n, row) => {
-    // TODO: Implementar función
-}
+
+const insertRow = _.curry((n, row, matrix) =>
+    _.concat(
+      matrix.slice(0, n),
+      [row],
+      matrix.slice(n)
+    )
+  );
 
 const insertcolumn = (file, n, column) => {
     // TODO: Implementar función
@@ -59,4 +68,4 @@ const tohtmltable = (file) => {
 }
 
 
-module.exports = { rowsToColumns, columnsToRows, columnDelete};
+module.exports = { rowsToColumns, columnsToRows, columnDelete, swap, rowDelete, insertRow};
