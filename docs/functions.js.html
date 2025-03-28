@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>functions.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/IIC3585/2025-1-s1-g1-t1" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Global</h3><ul><li><a href="global.html#insertColumn">insertColumn</a></li><li><a href="global.html#insertColumnHead">insertColumnHead</a></li><li><a href="global.html#insertColumnTail">insertColumnTail</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">functions.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import _ from "lodash";
+
+// TODO: revisar si es posible omitir las declaraciones y remplazarlos completamente por transpose
+
+
+// OPTION 1: 
+/*
+
+const rowsToColumns = (file) => {
+    const data = readCSV(file);
+    const transposed = transpose(data);
+    writeCSV("output-rowsToCols.csv", transposed);
+};
+
+const columnsToRows= (file) =>{
+    const data = readCSV(file);
+    const transposed = transpose(data);
+    writeCSV("output-colsToRows.csv", transposed);
+};
+
+const columnDelete =  (matrix, n)=>{ 
+    const data = readCSV(file);  // si cambia de matriz a file, des-comentar esta linea
+    const newData = data.map(row => row.filter((_, index) => index !== n));
+    writeCSV("output-colsToRows.csv", transposed); // si cambia de matriz a file, des-comentar esta linea
+};
+
+module.exports = { rowsToColumns, columnsToRows , columnDelete};*/
+
+// OPTION 2:
+
+const rowsToColumns = (data) => transpose(data);
+const columnsToRows = (data) => transpose(data);  // Inversa es exactamente la misma función de transpose
+
+
+const transpose = (matrix) =>
+    matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
+
+const columnDelete = n => matrix =>
+    matrix.map(row => row.filter((_, index) => index !== n));
+
+
+const swap = (file, n, m) => {
+    // TODO: Implementar función
+}
+
+const rowDelete = (file, n) => {
+    // TODO: Implementar función
+}
+
+const insertRow = (file, n, row) => {
+    // TODO: Implementar función
+}
+
+
+// Positive or negative n
+/**
+ * This function inserts a column into a file at the specified position.
+ * It can insert a column at the head (0), tail (-1), or any other position (n).
+ * The column must match the number of rows in the file.
+ * @function insertColumn
+ * 
+ * @param {Array&lt;Array&lt;any>>} file   - The file to insert the column into
+ * @param {number} n     - The position to insert the column at
+ * @param {Array&lt;any>} column - The column to insert
+ * @returns {Array&lt;Array&lt;any>>}      - The file with the column inserted
+ * @throws {Error}       - Throws an error if the column length does not match the number of rows in the file
+ * 
+ * @example
+ * const file = [
+ *   ["a", "b", "c"],
+ *   ["d", "e", "f"],
+ *   ["g", "h", "i"]
+ * ];
+ * const column = ["1", "2", "3"];
+ * const n = 1;
+ * const newFile = insertColumn(file, n, column);
+ * // console.log(newFile);
+ * // Output:
+ * // [
+ * //   ["a", "1", "b", "c"],
+ * //   ["d", "2", "e", "f"],
+ * //   ["g", "3", "h", "i"]
+ * // ];
+ * 
+ * @example
+ * const column = ["1", "2", "3"];
+ * const n = -1;
+ * const newFile = insertColumn(file, n, column);
+ * // console.log(newFile);
+ * // Output:
+ * // [
+ * //   ["a", "b", "c", "1"],
+ * //   ["d", "e", "f", "2"],
+ * //   ["g", "h", "i", "3"]
+ * // ];
+ * 
+ * Edge Cases:
+ * - If the column length does not match the number of rows in the file, an error will be thrown.
+ */
+const insertColumn = _.curry((file, n, column) => {
+    if (file.length !== column.length) {
+        throw new Error("The column length must match the number of rows in the file.");
+    }
+    return file.map((row, index) => {
+        const pos = n &lt; 0 ? row.length + n + 1 : n;
+        return [...row.slice(0, pos), column[index], ...row.slice(pos)];
+    });
+});
+
+
+/**
+ * This function inserts a column at the head of the file.
+ * @function insertColumnHead
+ * 
+ * @param {Array&lt;Array&lt;any>>} file   - The file to insert the column into
+ * @param {Array} column - The column to insert
+ * @returns {Array&lt;Array&lt;any>>}      - The file with the column inserted
+ * @throws {Error}       - Throws an error if the column length does not match the number of rows in the file
+ */
+const insertColumnHead = insertColumn(_, 0);
+
+/**
+ * This function inserts a column at the tail of the file.
+ * @function insertColumnTail
+ * 
+ * @param {Array&lt;Array&lt;any>>} file   - The file to insert the column into
+ * @param {Array} column - The column to insert
+ * @returns {Array&lt;Array&lt;any>>}      - The file with the column inserted
+ * @throws {Error}       - Throws an error if the column length does not match the number of rows in the file
+ */
+const insertColumnTail = insertColumn(_, -1);
+
+
+const HTML_TAGS = {
+    TABLE: "table",
+    ROW: "tr",
+    CELL: "td"
+}
+
+const INDENTATION = {
+    TAB: "    ",
+    NEW_LINE: "\n",
+}
+
+const createHtmlTag = _.curry((tag, content) => {
+    return `&lt;${tag}>${content}&lt;/${tag}>`;
+})
+
+const createTable = createHtmlTag(HTML_TAGS.TABLE);
+const createRow = createHtmlTag(HTML_TAGS.ROW);
+const createCell = createHtmlTag(HTML_TAGS.CELL);
+
+const extractContent = (row) => {
+    return row.map(cell => createCell(cell)).join("");
+}
+
+const toHtmlTable = (file) => {
+    const table = file.map(row => createRow(extractContent(row)))
+    const htmlTable = createTable(table);
+    return htmlTable;
+}
+
+// const createHtmlTag = _.curry((tag, indent, content) => {
+//     const indentation = INDENTATION.TAB.repeat(indent);
+//     const openingTag = `${indentation}&lt;${tag}>`;
+//     const closingTag = `${indentation}&lt;/${tag}>`;
+//     return [openingTag, content, closingTag]
+// });
+
+// const createTable = createHtmlTag(HTML_TAGS.TABLE,0);
+// const createRow = createHtmlTag(HTML_TAGS.ROW,1);
+// const createCell = createHtmlTag(HTML_TAGS.CELL,0);
+
+// // Función principal para transformar CSV en tabla HTML
+// const toHtmlTable = (file) => {
+//     const table = _.chain(file)
+//         .map(row => 
+//             createRow(
+//             row.map(cell => createCell(cell)
+//                 .join(""))
+//             .join("\n\t"))
+//         // )
+//         .join("\n"))
+//         .join("\n")
+//         .thru(createTable)
+//         .join("\n")
+//         .value();
+
+//     console.log(table);
+//     const htmlTable = table;
+//     return htmlTable;
+// }
+
+
+export {
+    rowsToColumns,
+    columnsToRows,
+    columnDelete,
+    insertColumn,
+    insertColumnHead,
+    insertColumnTail,
+    toHtmlTable,
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Fri Mar 28 2025 09:44:35 GMT-0300 (hora de verano de Chile) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

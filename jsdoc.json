@@ -1,0 +1,40 @@
+{
+    "opts": {
+        "template": "node_modules/docdash",
+        "encoding": "utf8",
+        "destination": "./docs/",
+        "recurse": true,
+        "verbose": true
+    },
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "source": {
+        "include": ["src"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "exclude": ["node_modules", "docs"],
+        "excludePattern": "(node_modules/|docs/|\\.test\\.js$)"
+    },
+    "docdash": {
+        "static": true,
+        "sort": true,
+        "search": true,
+        "collapse": true,
+        "typedefs": true,
+        "removeQuotes": "none",
+        "scripts": [],
+        "menu":{
+            "Github repo": {
+                "href":"https://github.com/IIC3585/2025-1-s1-g1-t1",
+                "target":"_blank",
+                "class":"menu-item",
+                "id":"repository"
+            }
+        }
+    },
+    "templates": {
+        "default": {
+            "useLongnameInNav": true
+        }
+    }
+}
