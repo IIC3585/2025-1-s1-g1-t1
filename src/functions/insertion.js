@@ -32,7 +32,7 @@ const getMaxRowLength = (matrix, row) =>
 const padRow = (row, length) =>
   _.concat(row, Array(length - row.length).fill(undefined));
 
-const insertRow = _.curry((matrix, n, row) => {
+const insertRow = _.curry(( n, row, matrix) => {
   const pos = n < 0 ? matrix.length + n + 1 : n;
   return _.flow(
     () => getMaxRowLength(matrix, row),
