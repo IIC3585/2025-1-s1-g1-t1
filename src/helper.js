@@ -1,5 +1,5 @@
-const { readFileSync, writeFileSync } = require("fs");
-const _ = require("lodash");
+import { readFileSync, writeFileSync } from "fs";
+import _ from "lodash";
 
 const readCSV = (file) =>
     readFileSync(file, "utf8")
@@ -21,5 +21,7 @@ const processCSVFile = (fn, file, output) => {
     writeCSV(output, result);
 }
 
+const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
 
-module.exports = { processCSVFile};
+
+export  { processCSVFile, readCSV, writeCSV, pipe};
