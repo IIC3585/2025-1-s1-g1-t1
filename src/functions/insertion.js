@@ -26,29 +26,33 @@ import _ from "lodash";
  * // ];
  */
 
-const insertRow = _.curry((n, row, matrix) =>
-    _.concat(
-      matrix.slice(0, n),
-      [row],
-      matrix.slice(n)
-    )
-  );
+const getMaxRowLength = (matrix, row) =>
+  Math.max(...matrix.map((r) => r.length), row.length);
 
-//   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+const padRow = (row, length) =>
+  _.concat(row, Array(length - row.length).fill(undefined));
 
+const insertRow = _.curry((matrix, n, row) => {
+  const pos = n < 0 ? matrix.length + n + 1 : n;
+  return _.flow(
+    () => getMaxRowLength(matrix, row),
+    (maxLength) => padRow(row, maxLength),
+    (paddedRow) =>
+      _.concat(matrix.slice(0, pos), [paddedRow], matrix.slice(pos))
+  )();
+});
 
 /**
  * This function inserts a column into a file at the specified position.
  * It can insert a column at the head (0), tail (-1), or any other position (n).
  * The column must match the number of rows in the file.
  * @function insertColumn
- * 
+ *
  * @param {Array<Array<any>>} file   - The file to insert the column into
  * @param {number} n     - The position to insert the column at
  * @param {Array<any>} column - The column to insert
  * @returns {Array<Array<any>>}      - The file with the column inserted
- * @throws {Error}       - Throws an error if the column length does not match the number of rows in the file
- * 
+ *
  * @example
  * const file = [
  *   ["a", "b", "c"],
@@ -65,7 +69,7 @@ const insertRow = _.curry((n, row, matrix) =>
  * //   ["d", "2", "e", "f"],
  * //   ["g", "3", "h", "i"]
  * // ];
- * 
+ *
  * @example
  * const column = ["1", "2", "3"];
  * const n = -1;
@@ -79,44 +83,30 @@ const insertRow = _.curry((n, row, matrix) =>
  * // ];
  */
 const insertColumn = _.curry((file, n, column) => {
-    if (file.length !== column.length) {
-        throw new Error("The column length must match the number of rows in the file.");
-    }
-    return file.map((row, index) => {
-        const pos = n < 0 ? row.length + n + 1 : n;
-        return [...row.slice(0, pos), column[index], ...row.slice(pos)];
-    });
+  return file.map((row, index) => {
+      const pos = n < 0 ? row.length + n + 1 : n;
+      return [...row.slice(0, pos), column[index], ...row.slice(pos)];
+  });
 });
-
 
 /**
  * This function inserts a column at the head of the file.
  * @function insertColumnHead
- * 
+ *
  * @param {Array<Array<any>>} file   - The file to insert the column into
  * @param {Array} column - The column to insert
  * @returns {Array<Array<any>>}      - The file with the column inserted
- * @throws {Error}       - Throws an error if the column length does not match the number of rows in the file
  */
 const insertColumnHead = insertColumn(_, 0);
 
 /**
  * This function inserts a column at the tail of the file.
  * @function insertColumnTail
- * 
+ *
  * @param {Array<Array<any>>} file   - The file to insert the column into
  * @param {Array} column - The column to insert
  * @returns {Array<Array<any>>}      - The file with the column inserted
- * @throws {Error}       - Throws an error if the column length does not match the number of rows in the file
  */
 const insertColumnTail = insertColumn(_, -1);
 
-
-
-
-export {
-    insertRow,
-    insertColumn,
-    insertColumnHead,
-    insertColumnTail,
-}
+export { insertRow, insertColumn, insertColumnHead, insertColumnTail };

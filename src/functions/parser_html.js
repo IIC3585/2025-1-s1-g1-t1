@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { pipe } from "./helper.js";
+import { pipe } from "../helper.js";
 
 const HTML_TAGS = {
     TABLE: "table",

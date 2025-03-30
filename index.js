@@ -8,7 +8,7 @@ import {
 
 import {
   columnDelete,
-  rowsDelete,
+  rowDelete,
 } from "./src/functions/delete.js";
 
 import {
@@ -33,7 +33,10 @@ const data = readCSV(filePath);
 // const new_data = insertColumn(data, -6, ["hola@uc.cl", "nombre", "apellido"]);
 // const new_data = insertColumnHead(data, ["hola@uc.cl", "nombre", "apellido"]);
 // const new_data = insertColumnTail(data, ["hola@uc.cl", "nombre", "apellido"]);
-const new_data = toHtmlTable(data);
+// const new_data = toHtmlTable(data);
+
+// const new_data = insertRow(data, 10, ["hola@uc.cl", "nombre"]);
+
 
 // console.log(data);
 // console.log(" ");
