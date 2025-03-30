@@ -4,7 +4,8 @@
         "encoding": "utf8",
         "destination": "./docs/",
         "recurse": true,
-        "verbose": true
+        "verbose": true,
+        "readme": "./README.md"
     },
     "plugins": [
         "plugins/markdown"

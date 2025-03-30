@@ -31,6 +31,7 @@ const extractContentCell = (row) => {
 
 /**
  * Convert an array of arrays into an HTML table.
+ * @function toHtmlTable
  * @param {Array<Array<any>>} file - The input array of arrays.
  * @returns {string} - The HTML table as a string.
  * 
