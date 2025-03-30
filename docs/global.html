@@ -718,7 +718,7 @@ and adds them to the <code>currentPipeline</code> array. If a function requires 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line293">line 293</a>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line294">line 294</a>
     </li></ul></dd>
     
 
@@ -811,7 +811,7 @@ hides the confirm button, and updates the pipeline display.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line273">line 273</a>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line274">line 274</a>
     </li></ul></dd>
     
 
@@ -1107,7 +1107,7 @@ It also updates the pipeline display and hides the parameter input section.</p><
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line241">line 241</a>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line242">line 242</a>
     </li></ul></dd>
     
 
@@ -1274,7 +1274,7 @@ and triggers a download in the browser.</p></li></ul></dd>
 
     
 
-    <h4 class="name" id="insertColumn"><span class="type-signature"></span>insertColumn<span class="signature">(file, n, column)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
+    <h4 class="name" id="insertColumn"><span class="type-signature"></span>insertColumn<span class="signature">(n, column, file)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
 
     
 
@@ -1394,30 +1394,6 @@ const newFile = insertColumn(file, n, column);
 
         <tr>
             
-                <td class="name"><code>file</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;Array.&lt;any>></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The file to insert the column into</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>n</code></td>
             
 
@@ -1463,6 +1439,30 @@ const newFile = insertColumn(file, n, column);
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Array.&lt;any>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The file to insert the column into</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -1514,7 +1514,7 @@ const newFile = insertColumn(file, n, column);
 
     
 
-    <h4 class="name" id="insertColumnHead"><span class="type-signature"></span>insertColumnHead<span class="signature">(file, column)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
+    <h4 class="name" id="insertColumnHead"><span class="type-signature"></span>insertColumnHead<span class="signature">(column, file)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
 
     
 
@@ -1530,7 +1530,7 @@ const newFile = insertColumn(file, n, column);
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_insertion.js.html">functions/insertion.js</a>, <a href="functions_insertion.js.html#line92">line 92</a>
+        <a href="functions_insertion.js.html">functions/insertion.js</a>, <a href="functions_insertion.js.html#line94">line 94</a>
     </li></ul></dd>
     
 
@@ -1602,30 +1602,6 @@ const newFile = insertColumn(file, n, column);
 
         <tr>
             
-                <td class="name"><code>file</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;Array.&lt;any>></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The file to insert the column into</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>column</code></td>
             
 
@@ -1644,6 +1620,30 @@ const newFile = insertColumn(file, n, column);
             
 
             <td class="description last"><p>The column to insert</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Array.&lt;any>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The file to insert the column into</p></td>
         </tr>
 
     
@@ -1698,7 +1698,7 @@ const newFile = insertColumn(file, n, column);
 
     
 
-    <h4 class="name" id="insertColumnTail"><span class="type-signature"></span>insertColumnTail<span class="signature">(file, column)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
+    <h4 class="name" id="insertColumnTail"><span class="type-signature"></span>insertColumnTail<span class="signature">(column, file)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
 
     
 
@@ -1714,7 +1714,7 @@ const newFile = insertColumn(file, n, column);
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions_insertion.js.html">functions/insertion.js</a>, <a href="functions_insertion.js.html#line102">line 102</a>
+        <a href="functions_insertion.js.html">functions/insertion.js</a>, <a href="functions_insertion.js.html#line104">line 104</a>
     </li></ul></dd>
     
 
@@ -1786,30 +1786,6 @@ const newFile = insertColumn(file, n, column);
 
         <tr>
             
-                <td class="name"><code>file</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;Array.&lt;any>></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The file to insert the column into</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>column</code></td>
             
 
@@ -1828,6 +1804,30 @@ const newFile = insertColumn(file, n, column);
             
 
             <td class="description last"><p>The column to insert</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Array.&lt;any>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The file to insert the column into</p></td>
         </tr>
 
     
@@ -3480,7 +3480,7 @@ functions and their parameters, if applicable.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line221">line 221</a>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line222">line 222</a>
     </li></ul></dd>
     
 
@@ -3571,7 +3571,7 @@ functions and their parameters, if applicable.</p></li></ul></dd>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Sun Mar 30 2025 19:33:43 GMT-0300 (Chile Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Sun Mar 30 2025 20:31:50 GMT-0300 (Chile Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

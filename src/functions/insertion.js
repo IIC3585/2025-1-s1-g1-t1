@@ -48,9 +48,9 @@ const insertRow = _.curry((matrix, n, row) => {
  * The column must match the number of rows in the file.
  * @function insertColumn
  *
- * @param {Array<Array<any>>} file   - The file to insert the column into
  * @param {number} n     - The position to insert the column at
  * @param {Array<any>} column - The column to insert
+ * @param {Array<Array<any>>} file   - The file to insert the column into
  * @returns {Array<Array<any>>}      - The file with the column inserted
  *
  * @example
@@ -95,8 +95,8 @@ const insertColumn = _.curry((n, column, file) => {
  * This function inserts a column at the head of the file.
  * @function insertColumnHead
  *
- * @param {Array<Array<any>>} file   - The file to insert the column into
  * @param {Array} column - The column to insert
+ * @param {Array<Array<any>>} file   - The file to insert the column into
  * @returns {Array<Array<any>>}      - The file with the column inserted
  */
 const insertColumnHead = insertColumn(0);
@@ -105,8 +105,9 @@ const insertColumnHead = insertColumn(0);
  * This function inserts a column at the tail of the file.
  * @function insertColumnTail
  *
- * @param {Array<Array<any>>} file   - The file to insert the column into
  * @param {Array} column - The column to insert
+ * @param {Array<Array<any>>} file   - The file to insert the column into
+ * 
  * @returns {Array<Array<any>>}      - The file with the column inserted
  */
 const insertColumnTail = insertColumn(-1);
