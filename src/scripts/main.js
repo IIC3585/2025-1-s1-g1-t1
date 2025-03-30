@@ -21,14 +21,9 @@ import {
     insertRow
   } from "../functions/insertion.js";
 
-  import { toHtmlTable } from "../functions/parser_html.js";
-import * as domFunctions from './dom-handlers.js'
-
 let currentPipeline = [];
 let processedData = null;
 let currentCSVData = null;
-
-
 
 
 /**

@@ -10,7 +10,7 @@
 > [!NOTE]
 > Fecha de entrega 31-03-2025
 
-## :file_folder: Estructura de archivos
+## 📁 Estructura de archivos
 Por motivos prácticos, no se muestra la carpeta docs, debido a que es autogenerada con ```jsdoc```.
 ```
 ├── data
@@ -37,7 +37,7 @@ El objetivo es desarrollar una solución funcional en **JavaScript** a un proble
 * Composición y Pipes
 * Chaining
 
-## :computer: Desafío
+## 💻 Desafío
 
 El problema a resolver es la transformación de archivos CSV.  Básicamente un formato que se usa para ingresar información tabular en forma de texto. Los campos se separan por comas y las filas por \n (new line). Por ejemplo, el archivo siguiente:
 
