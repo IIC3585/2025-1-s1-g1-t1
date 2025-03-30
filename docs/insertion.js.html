@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>functions.js - Documentation</title>
+    <title>insertion.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -31,13 +31,13 @@
     <input type="text" id="nav-search" placeholder="Search" />
     
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/IIC3585/2025-1-s1-g1-t1" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Global</h3><ul><li><a href="global.html#insertColumn">insertColumn</a></li><li><a href="global.html#insertColumnHead">insertColumnHead</a></li><li><a href="global.html#insertColumnTail">insertColumnTail</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/IIC3585/2025-1-s1-g1-t1" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Global</h3><ul><li><a href="global.html#columnDelete">columnDelete</a></li><li><a href="global.html#insertColumn">insertColumn</a></li><li><a href="global.html#insertColumnHead">insertColumnHead</a></li><li><a href="global.html#insertColumnTail">insertColumnTail</a></li><li><a href="global.html#insertRow">insertRow</a></li><li><a href="global.html#rowDelete">rowDelete</a></li><li><a href="global.html#swap">swap</a></li><li><a href="global.html#toHtmlTable">toHtmlTable</a></li><li><a href="global.html#transpose">transpose</a></li></ul>
     
 </nav>
 
 <div id="main">
     
-    <h1 class="page-title">functions.js</h1>
+    <h1 class="page-title">insertion.js</h1>
     
 
     
@@ -49,59 +49,43 @@
         <article>
             <pre class="prettyprint source linenums"><code>import _ from "lodash";
 
-// TODO: revisar si es posible omitir las declaraciones y remplazarlos completamente por transpose
+/**
+ * @function insertRow
+ * @description Inserts a row into a matrix at the specified position.
+ * @param {number} n - The position to insert the row
+ * @param {Array&lt;any>} row - The row to insert
+ * @param {Array&lt;Array&lt;any>>} matrix - The matrix to insert the row into
+ * @returns {Array&lt;Array&lt;any>>} - The matrix with the row inserted
+ * @example
+ * const matrix = [
+ *   [1, 2, 3],
+ *   [4, 5, 6],
+ *   [7, 8, 9]
+ * ];
+ * const row = [10, 11, 12];
+ * const n = 1;
+ * const newMatrix = insertRow(n, row, matrix);
+ * // console.log(newMatrix);
+ * // Output:
+ * // [
+ * //   [1, 2, 3],
+ * //   [10, 11, 12],
+ * //   [4, 5, 6],
+ * //   [7, 8, 9]
+ * // ];
+ */
+
+const insertRow = _.curry((n, row, matrix) =>
+    _.concat(
+      matrix.slice(0, n),
+      [row],
+      matrix.slice(n)
+    )
+  );
+
+//   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 
 
-// OPTION 1: 
-/*
-
-const rowsToColumns = (file) => {
-    const data = readCSV(file);
-    const transposed = transpose(data);
-    writeCSV("output-rowsToCols.csv", transposed);
-};
-
-const columnsToRows= (file) =>{
-    const data = readCSV(file);
-    const transposed = transpose(data);
-    writeCSV("output-colsToRows.csv", transposed);
-};
-
-const columnDelete =  (matrix, n)=>{ 
-    const data = readCSV(file);  // si cambia de matriz a file, des-comentar esta linea
-    const newData = data.map(row => row.filter((_, index) => index !== n));
-    writeCSV("output-colsToRows.csv", transposed); // si cambia de matriz a file, des-comentar esta linea
-};
-
-module.exports = { rowsToColumns, columnsToRows , columnDelete};*/
-
-// OPTION 2:
-
-const rowsToColumns = (data) => transpose(data);
-const columnsToRows = (data) => transpose(data);  // Inversa es exactamente la misma función de transpose
-
-
-const transpose = (matrix) =>
-    matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
-
-const columnDelete = n => matrix =>
-    matrix.map(row => row.filter((_, index) => index !== n));
-
-
-const swap = (file, n, m) => {
-    // TODO: Implementar función
-}
-
-const rowDelete = (file, n) => {
-    // TODO: Implementar función
-}
-
-const insertRow = (file, n, row) => {
-    // TODO: Implementar función
-}
-
-
-// Positive or negative n
 /**
  * This function inserts a column into a file at the specified position.
  * It can insert a column at the head (0), tail (-1), or any other position (n).
@@ -142,9 +126,6 @@ const insertRow = (file, n, row) => {
  * //   ["d", "e", "f", "2"],
  * //   ["g", "h", "i", "3"]
  * // ];
- * 
- * Edge Cases:
- * - If the column length does not match the number of rows in the file, an error will be thrown.
  */
 const insertColumn = _.curry((file, n, column) => {
     if (file.length !== column.length) {
@@ -180,76 +161,14 @@ const insertColumnHead = insertColumn(_, 0);
 const insertColumnTail = insertColumn(_, -1);
 
 
-const HTML_TAGS = {
-    TABLE: "table",
-    ROW: "tr",
-    CELL: "td"
-}
-
-const INDENTATION = {
-    TAB: "    ",
-    NEW_LINE: "\n",
-}
-
-const createHtmlTag = _.curry((tag, content) => {
-    return `&lt;${tag}>${content}&lt;/${tag}>`;
-})
-
-const createTable = createHtmlTag(HTML_TAGS.TABLE);
-const createRow = createHtmlTag(HTML_TAGS.ROW);
-const createCell = createHtmlTag(HTML_TAGS.CELL);
-
-const extractContent = (row) => {
-    return row.map(cell => createCell(cell)).join("");
-}
-
-const toHtmlTable = (file) => {
-    const table = file.map(row => createRow(extractContent(row)))
-    const htmlTable = createTable(table);
-    return htmlTable;
-}
-
-// const createHtmlTag = _.curry((tag, indent, content) => {
-//     const indentation = INDENTATION.TAB.repeat(indent);
-//     const openingTag = `${indentation}&lt;${tag}>`;
-//     const closingTag = `${indentation}&lt;/${tag}>`;
-//     return [openingTag, content, closingTag]
-// });
-
-// const createTable = createHtmlTag(HTML_TAGS.TABLE,0);
-// const createRow = createHtmlTag(HTML_TAGS.ROW,1);
-// const createCell = createHtmlTag(HTML_TAGS.CELL,0);
-
-// // Función principal para transformar CSV en tabla HTML
-// const toHtmlTable = (file) => {
-//     const table = _.chain(file)
-//         .map(row => 
-//             createRow(
-//             row.map(cell => createCell(cell)
-//                 .join(""))
-//             .join("\n\t"))
-//         // )
-//         .join("\n"))
-//         .join("\n")
-//         .thru(createTable)
-//         .join("\n")
-//         .value();
-
-//     console.log(table);
-//     const htmlTable = table;
-//     return htmlTable;
-// }
 
 
 export {
-    rowsToColumns,
-    columnsToRows,
-    columnDelete,
+    insertRow,
     insertColumn,
     insertColumnHead,
     insertColumnTail,
-    toHtmlTable,
-};</code></pre>
+}</code></pre>
         </article>
     </section>
 
@@ -263,7 +182,7 @@ export {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Fri Mar 28 2025 09:44:35 GMT-0300 (hora de verano de Chile) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Sun Mar 30 2025 13:50:48 GMT-0300 (Chile Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
