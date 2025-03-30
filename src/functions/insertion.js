@@ -48,9 +48,9 @@ const insertRow = _.curry((matrix, n, row) => {
  * The column must match the number of rows in the file.
  * @function insertColumn
  *
- * @param {Array<Array<any>>} file   - The file to insert the column into
  * @param {number} n     - The position to insert the column at
  * @param {Array<any>} column - The column to insert
+ * @param {Array<Array<any>>} file   - The file to insert the column into
  * @returns {Array<Array<any>>}      - The file with the column inserted
  *
  * @example
@@ -82,31 +82,34 @@ const insertRow = _.curry((matrix, n, row) => {
  * //   ["g", "h", "i", "3"]
  * // ];
  */
-const insertColumn = _.curry((file, n, column) => {
-  return file.map((row, index) => {
+const insertColumn = _.curry((n, column, file) => {
+  const newTable =  file.map((row, index) => {
       const pos = n < 0 ? row.length + n + 1 : n;
       return [...row.slice(0, pos), column[index], ...row.slice(pos)];
   });
+  console.log(newTable);
+  return newTable;
 });
 
 /**
  * This function inserts a column at the head of the file.
  * @function insertColumnHead
  *
- * @param {Array<Array<any>>} file   - The file to insert the column into
  * @param {Array} column - The column to insert
+ * @param {Array<Array<any>>} file   - The file to insert the column into
  * @returns {Array<Array<any>>}      - The file with the column inserted
  */
-const insertColumnHead = insertColumn(_, 0);
+const insertColumnHead = insertColumn(0);
 
 /**
  * This function inserts a column at the tail of the file.
  * @function insertColumnTail
  *
- * @param {Array<Array<any>>} file   - The file to insert the column into
  * @param {Array} column - The column to insert
+ * @param {Array<Array<any>>} file   - The file to insert the column into
+ * 
  * @returns {Array<Array<any>>}      - The file with the column inserted
  */
-const insertColumnTail = insertColumn(_, -1);
+const insertColumnTail = insertColumn(-1);
 
 export { insertRow, insertColumn, insertColumnHead, insertColumnTail };

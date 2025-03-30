@@ -26,12 +26,12 @@ export const functionConfigs = {
     },
     insertColumn: {
         inputs: [
-            { label: 'Índice de columna a insertar:', id: 'columnIndex', type: 'number', attrs: { min: '0', value: '0', style: 'width: 60px;' } },
-            { label: 'Valores de la nueva columna (separados por comas):', id: 'columnValues', type: 'text', attrs: { placeholder: 'valor1, valor2, ...', style: 'width: 200px;' } }
+            { label: 'Índice de columna a insertar:', id: 'columnIndexInsert', type: 'number', attrs: { min: '0', value: '0', style: 'width: 60px;' } },
+            { label: 'Valores de la nueva columna (separados por comas):', id: 'columnValuesInsert', type: 'text', attrs: { placeholder: 'valor1, valor2, ...', style: 'width: 200px;' } }
         ],
         paramBuilder: () => ({ 
-            index: parseInt(document.getElementById('columnIndex').value), 
-            values: document.getElementById('columnValues').value.split(',').map(val => val.trim()) 
+            index: parseInt(document.getElementById('columnIndexInsert').value), 
+            values: document.getElementById('columnValuesInsert').value.split(',').map(val => val.trim()) 
         })
     },
     insertRow: {
@@ -46,18 +46,18 @@ export const functionConfigs = {
     },
     insertColumnHead: {
         inputs: [
-            { label: 'Valores de la nueva columna (separados por comas):', id: 'columnValues', type: 'text', attrs: { placeholder: 'valor1, valor2, ...', style: 'width: 200px;' } }
+            { label: 'Valores de la nueva columna (separados por comas):', id: 'columnValuesHead', type: 'text', attrs: { placeholder: 'valor1, valor2, ...', style: 'width: 200px;' } }
         ],
         paramBuilder: () => ({ 
-            values: document.getElementById('columnValues').value.split(',').map(val => val.trim()) 
+            values: document.getElementById('columnValuesHead').value.split(',').map(val => val.trim()) 
         })
     },
     insertColumnTail: {
         inputs: [
-            { label: 'Valores de la nueva columna (separados por comas):', id: 'columnValues', type: 'text', attrs: { placeholder: 'valor1, valor2, ...', style: 'width: 200px;' } }
+            { label: 'Valores de la nueva columna (separados por comas):', id: 'columnValuesTail', type: 'text', attrs: { placeholder: 'valor1, valor2, ...', style: 'width: 200px;' } }
         ],
         paramBuilder: () => ({ 
-            values: document.getElementById('columnValues').value.split(',').map(val => val.trim()) 
+            values: document.getElementById('columnValuesTail').value.split(',').map(val => val.trim()) 
         })
     },
     rowsToColumns: { inputs: [] },

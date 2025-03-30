@@ -204,6 +204,7 @@ function showParamInputs(funcName) {
 
 
 function getFunctionDescription(item) {
+    console.log(item);
     const descriptions = {
         columnDelete: () => `• ${item.name} (columna ${item.params.columnIndex})`,
         rowDelete: () => `• ${item.name} (fila ${item.params.rowIndex})`,
