@@ -82,11 +82,13 @@ const insertRow = _.curry((matrix, n, row) => {
  * //   ["g", "h", "i", "3"]
  * // ];
  */
-const insertColumn = _.curry((file, n, column) => {
-  return file.map((row, index) => {
+const insertColumn = _.curry((n, column, file) => {
+  const newTable =  file.map((row, index) => {
       const pos = n < 0 ? row.length + n + 1 : n;
       return [...row.slice(0, pos), column[index], ...row.slice(pos)];
   });
+  console.log(newTable);
+  return newTable;
 });
 
 /**
@@ -97,7 +99,7 @@ const insertColumn = _.curry((file, n, column) => {
  * @param {Array} column - The column to insert
  * @returns {Array<Array<any>>}      - The file with the column inserted
  */
-const insertColumnHead = insertColumn(_, 0);
+const insertColumnHead = insertColumn(0);
 
 /**
  * This function inserts a column at the tail of the file.
@@ -107,6 +109,6 @@ const insertColumnHead = insertColumn(_, 0);
  * @param {Array} column - The column to insert
  * @returns {Array<Array<any>>}      - The file with the column inserted
  */
-const insertColumnTail = insertColumn(_, -1);
+const insertColumnTail = insertColumn(-1);
 
 export { insertRow, insertColumn, insertColumnHead, insertColumnTail };
