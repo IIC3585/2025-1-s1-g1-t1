@@ -31,7 +31,7 @@
     <input type="text" id="nav-search" placeholder="Search" />
     
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/IIC3585/2025-1-s1-g1-t1" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Global</h3><ul><li><a href="global.html#insertColumn">insertColumn</a></li><li><a href="global.html#insertColumnHead">insertColumnHead</a></li><li><a href="global.html#insertColumnTail">insertColumnTail</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/IIC3585/2025-1-s1-g1-t1" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Global</h3><ul><li><a href="global.html#columnDelete">columnDelete</a></li><li><a href="global.html#insertColumn">insertColumn</a></li><li><a href="global.html#insertColumnHead">insertColumnHead</a></li><li><a href="global.html#insertColumnTail">insertColumnTail</a></li><li><a href="global.html#insertRow">insertRow</a></li><li><a href="global.html#rowDelete">rowDelete</a></li><li><a href="global.html#swap">swap</a></li><li><a href="global.html#toHtmlTable">toHtmlTable</a></li><li><a href="global.html#transpose">transpose</a></li></ul>
     
 </nav>
 
@@ -123,9 +123,311 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="toHtmlTable"><span class="type-signature type-signature-constant">(constant) </span>toHtmlTable<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Convert an array of arrays into an HTML table.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="parser_html.js.html">parser_html.js</a>, <a href="parser_html.js.html#line64">line 64</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Convert an array of arrays into an HTML table.</p>
+</div>
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>const file = [
+  ["a", "b", "c"],
+  ["d", "e", "f"],
+  ["g", "h", "i"]
+];
+const htmlTable = toHtmlTable(file);
+console.log(htmlTable);
+// Output:
+// &lt;table>
+//     &lt;tr>
+//         &lt;td>a&lt;/td>
+//         &lt;td>b&lt;/td>
+//         &lt;td>c&lt;/td>
+//     &lt;/tr>
+//     &lt;tr>
+//         &lt;td>d&lt;/td>
+//         &lt;td>e&lt;/td>
+//         &lt;td>f&lt;/td>
+//     &lt;/tr>
+//     &lt;tr>
+//         &lt;td>g&lt;/td>
+//         &lt;td>h&lt;/td>
+//         &lt;td>i&lt;/td>
+//     &lt;/tr>
+// &lt;/table></code></pre>
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="columnDelete"><span class="type-signature"></span>columnDelete<span class="signature">(n, matrix)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>This function deletes a column from a matrix at the specified position.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="delete.js.html">delete.js</a>, <a href="delete.js.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>const matrix = [
+  ["a", "b", "c"],
+  ["d", "e", "f"],
+  ["g", "h", "i"]
+];
+const n = 1;
+const newMatrix = columnDelete(n, matrix);
+console.log(newMatrix);
+// Output:
+// [
+//   ["a", "c"],
+//   ["d", "f"],
+//   ["g", "i"]
+// ];</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>n</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The position of the column to delete</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>matrix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Array.&lt;any>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The matrix to delete the column from</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The matrix with the column deleted</li>
+</ul>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Array.&lt;any>></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
 
         
             
@@ -150,7 +452,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line56">line 56</a>
+        <a href="insertion.js.html">insertion.js</a>, <a href="insertion.js.html#line40">line 40</a>
     </li></ul></dd>
     
 
@@ -197,9 +499,32 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 
     <h5 class="h5-examples">Examples</h5>
     
-    <pre class="prettyprint"><code>const file = [  ["a", "b", "c"],  ["d", "e", "f"],  ["g", "h", "i"]];const column = ["1", "2", "3"];const n = 1;const newFile = insertColumn(file, n, column);// console.log(newFile);// Output:// [//   ["a", "1", "b", "c"],//   ["d", "2", "e", "f"],//   ["g", "3", "h", "i"]// ];</code></pre>
+    <pre class="prettyprint"><code>const file = [
+  ["a", "b", "c"],
+  ["d", "e", "f"],
+  ["g", "h", "i"]
+];
+const column = ["1", "2", "3"];
+const n = 1;
+const newFile = insertColumn(file, n, column);
+// console.log(newFile);
+// Output:
+// [
+//   ["a", "1", "b", "c"],
+//   ["d", "2", "e", "f"],
+//   ["g", "3", "h", "i"]
+// ];</code></pre>
 
-    <pre class="prettyprint"><code>const column = ["1", "2", "3"];const n = -1;const newFile = insertColumn(file, n, column);// console.log(newFile);// Output:// [//   ["a", "b", "c", "1"],//   ["d", "e", "f", "2"],//   ["g", "h", "i", "3"]// ];Edge Cases:- If the column length does not match the number of rows in the file, an error will be thrown.</code></pre>
+    <pre class="prettyprint"><code>const column = ["1", "2", "3"];
+const n = -1;
+const newFile = insertColumn(file, n, column);
+// console.log(newFile);
+// Output:
+// [
+//   ["a", "b", "c", "1"],
+//   ["d", "e", "f", "2"],
+//   ["g", "h", "i", "3"]
+// ];</code></pre>
 
 
 
@@ -397,7 +722,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line111">line 111</a>
+        <a href="insertion.js.html">insertion.js</a>, <a href="insertion.js.html#line92">line 92</a>
     </li></ul></dd>
     
 
@@ -613,7 +938,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line122">line 122</a>
+        <a href="insertion.js.html">insertion.js</a>, <a href="insertion.js.html#line103">line 103</a>
     </li></ul></dd>
     
 
@@ -809,6 +1134,845 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 
 
         
+            
+
+    
+
+    <h4 class="name" id="insertRow"><span class="type-signature"></span>insertRow<span class="signature">(n, row, matrix)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Inserts a row into a matrix at the specified position.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="insertion.js.html">insertion.js</a>, <a href="insertion.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>const matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+const row = [10, 11, 12];
+const n = 1;
+const newMatrix = insertRow(n, row, matrix);
+// console.log(newMatrix);
+// Output:
+// [
+//   [1, 2, 3],
+//   [10, 11, 12],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ];</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>n</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The position to insert the row</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>row</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;any></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The row to insert</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>matrix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Array.&lt;any>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The matrix to insert the row into</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The matrix with the row inserted</li>
+</ul>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Array.&lt;any>></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="rowDelete"><span class="type-signature"></span>rowDelete<span class="signature">(index, matrix)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>This function deletes a row from a matrix at the specified position.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="delete.js.html">delete.js</a>, <a href="delete.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>const matrix = [
+ ["a", "b", "c"],
+ ["d", "e", "f"],
+ ["g", "h", "i"]
+];
+const index = 1;
+const newMatrix = rowDelete(index, matrix);
+console.log(newMatrix);
+// Output:
+// [
+//   ["a", "b", "c"],
+//   ["g", "h", "i"]
+// ];</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The position of the row to delete</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>matrix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Array.&lt;any>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The matrix to delete the row from</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The matrix with the row deleted</li>
+</ul>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Array.&lt;any>></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="swap"><span class="type-signature"></span>swap<span class="signature">(n, m, matrix)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Swaps two columns in a matrix.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mutation.js.html">mutation.js</a>, <a href="mutation.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>const file = [
+  ["a", "b", "c"],
+  ["d", "e", "f"],
+  ["g", "h", "i"]
+];
+const swappedFile = swap(0, 1, file);
+console.log(swappedFile);
+// Output: [
+["b", "a", "c"],
+["e", "d", "f"],
+["h", "g", "i"]
+];</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>n</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The index of the column to swap with column m</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The index of the column to swap with column n</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>matrix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input matrix</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The matrix with columns n and m swapped</li>
+</ul>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="transpose"><span class="type-signature"></span>transpose<span class="signature">(matrix)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Transposes a matrix, converting rows into columns and vice versa. It is used for both requested functions.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mutation.js.html">mutation.js</a>, <a href="mutation.js.html#line6">line 6</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>const file = [
+  ["a", "b", "c"],
+  ["d", "e", "f"],
+  ["g", "h", "i"]
+];
+const rowsToColumns = transpose(file);
+const columnsToRows = transpose(rowsToColumns);
+console.log(rowsToColumns);
+
+// Output: [
+ ["a", "d", "g"],
+ ["b", "e", "h"],
+ ["c", "f", "i"]
+];
+
+console.log(columnsToRows);
+
+// Output: [
+["a", "b", "c"],
+["d", "e", "f"],
+["g", "h", "i"]
+];</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>matrix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input matrix</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The transposed matrix</li>
+</ul>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
     
 
     
@@ -828,7 +1992,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Fri Mar 28 2025 09:44:35 GMT-0300 (hora de verano de Chile) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Sun Mar 30 2025 13:50:48 GMT-0300 (Chile Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

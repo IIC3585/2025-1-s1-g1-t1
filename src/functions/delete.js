@@ -27,8 +27,8 @@ const rowDelete = _.curry((index, matrix) =>
 
 
 /**
- * This function deletes a column from a matrix at the specified position.
  * @function columnDelete
+ * @description This function deletes a column from a matrix at the specified position.
  * @param {number} n                 - The position of the column to delete
  * @param {Array<Array<any>>} matrix - The matrix to delete the column from
  * @returns {Array<Array<any>>}      - The matrix with the column deleted

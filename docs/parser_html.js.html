@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>parser_html.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -37,31 +37,90 @@
 
 <div id="main">
     
+    <h1 class="page-title">parser_html.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import _ from "lodash";
+import { pipe } from "./helper.js";
 
+const HTML_TAGS = {
+    TABLE: "table",
+    ROW: "tr",
+    CELL: "td"
+}
 
-    <section class="package">
-        <h3> </h3>		
+const INDENTATION = {
+    TAB: "    ",
+    NEW_LINE: "\n",
+}
+
+const createHtmlTag = _.curry((tag, indentation, content) => {
+    let indent = INDENTATION.NEW_LINE + INDENTATION.TAB.repeat(indentation)
+
+    const openingTag = `${indent}&lt;${tag}>`;
+    const closingTag = tag === HTML_TAGS.CELL ? `&lt;/${tag}>`: `${indent}&lt;/${tag}>`;
+    content = Array.isArray(content) ? content.join("") : content;
+    return `${openingTag}${content}${closingTag}`;
+})
+
+const createTable = createHtmlTag(HTML_TAGS.TABLE, 0);
+const createRow = createHtmlTag(HTML_TAGS.ROW, 1);
+const createCell = createHtmlTag(HTML_TAGS.CELL, 2);
+
+const extractContentCell = (row) => {
+    return row.map(cell => createCell(cell)).join("");
+}
+
+/**
+ * Convert an array of arrays into an HTML table.
+ * @param {Array&lt;Array&lt;any>>} file - The input array of arrays.
+ * @returns {string} - The HTML table as a string.
+ * 
+ * @example
+ * const file = [
+ *   ["a", "b", "c"],
+ *   ["d", "e", "f"],
+ *   ["g", "h", "i"]
+ * ];
+ * const htmlTable = toHtmlTable(file);
+ * console.log(htmlTable);
+ * // Output:
+ * // &lt;table>
+ * //     &lt;tr>
+ * //         &lt;td>a&lt;/td>
+ * //         &lt;td>b&lt;/td>
+ * //         &lt;td>c&lt;/td>
+ * //     &lt;/tr>
+ * //     &lt;tr>
+ * //         &lt;td>d&lt;/td>
+ * //         &lt;td>e&lt;/td>
+ * //         &lt;td>f&lt;/td>
+ * //     &lt;/tr>
+ * //     &lt;tr>
+ * //         &lt;td>g&lt;/td>
+ * //         &lt;td>h&lt;/td>
+ * //         &lt;td>i&lt;/td>
+ * //     &lt;/tr>
+ * // &lt;/table>
+ */
+const toHtmlTable = pipe(
+    (file) => file.map(extractContentCell),
+    (rows) => rows.map(createRow),
+    createTable
+)
+
+export {
+    toHtmlTable,
+};</code></pre>
+        </article>
     </section>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
 
 
 
