@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Procesador funcional de CSV con JavaScript">
+    <meta name="keywords" content="CSV, JavaScript, procesamiento de datos, funciones">
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script type="module" src="./scripts/main.js"></script>
+    <title>Procesador Funcional de CSV</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Procesador Funcional de CSV</h1>
+    
+    <div class="file-input">
+        <h3>Selecciona archivo CSV:</h3>
+        <input type="file" id="csvFileInput" accept=".csv">
+        <button onclick="previewCSV()">Leer</button>
+    </div>
+    
+    <div>
+        <h3>Previsualización:</h3>
+        <pre id="csvPreview"></pre>
+    </div>
+    
+    <div class="function-selector">
+        <h3>Selecciona funciones para el pipeline:</h3>
+        <select id="functionSelect" multiple>
+            <option value="rowsToColumns">Intercambiar Filas y Columnas</option>
+            <option value="columnsToRows">Intercambiar Columnas y Filas</option>
+            <option value="columnDelete">Eliminar Columna</option>
+            <option value="rowDelete">Eliminar Fila</option>
+            <option value="swap">Intercambiar Columnas</option>
+            <option value="transpose">Transponer</option>
+            <option value="insertColumn">Insertar Columna</option>
+            <option value="insertColumnHead">Insertar Columna al Inicio</option>
+            <option value="insertColumnTail">Insertar Columna al Final</option>
+            <option value="insertRow">Insertar Fila</option>
+        </select>
+        <button onclick="addToPipeline()">Añadir al pipeline</button>
+        
+        <div id="paramInputs" style="margin-top: 10px;">
+            <!-- Los inputs aparecerán aquí -->
+        </div>
+        <button onclick="confirmParams()" id="confirmParamsBtn">Confirmar Parámetros</button>
+        
+        <h4>Pipeline actual:</h4>
+        <div id="pipelineDisplay">
+            <!-- Aquí se mostrarán las funciones añadidas al pipeline -->
+        </div>
+        <button onclick="clearPipeline()">Limpiar pipeline</button>
+    </div>
+    
+    <button onclick="processCSV()">Procesar CSV</button>
+    
+    <div>
+        <h3>Resultado:</h3>
+        <pre id="resultOutput"></pre>
+        <button onclick="toHtmlTableDisplay()" id="downloadBtn" disabled>Generar Tabla</button>
+        <div id="containerTable">
+            <!-- Aquí se mostrará la tabla HTML -->
+        </div>
+    </div>
+
+    <script type="module">
+        import * as mainFunctions from './scripts/main.js';
+        window.previewCSV = mainFunctions.previewCSV;
+        window.processCSV = mainFunctions.processCSV;
+        window.toHtmlTableDisplay = mainFunctions.toHtmlTableDisplay;
+        window.addToPipeline = mainFunctions.addToPipeline;
+        window.clearPipeline = mainFunctions.clearPipeline;
+        window.confirmParams = mainFunctions.confirmParams;
+    </script>
+
+</body>
+</html>

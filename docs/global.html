@@ -31,7 +31,7 @@
     <input type="text" id="nav-search" placeholder="Search" />
     
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/IIC3585/2025-1-s1-g1-t1" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Global</h3><ul><li><a href="global.html#columnDelete">columnDelete</a></li><li><a href="global.html#insertColumn">insertColumn</a></li><li><a href="global.html#insertColumnHead">insertColumnHead</a></li><li><a href="global.html#insertColumnTail">insertColumnTail</a></li><li><a href="global.html#insertRow">insertRow</a></li><li><a href="global.html#rowDelete">rowDelete</a></li><li><a href="global.html#swap">swap</a></li><li><a href="global.html#toHtmlTable">toHtmlTable</a></li><li><a href="global.html#transpose">transpose</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/IIC3585/2025-1-s1-g1-t1" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Global</h3><ul><li><a href="global.html#Left">Left</a></li><li><a href="global.html#Right">Right</a></li><li><a href="global.html#addToPipeline">addToPipeline</a></li><li><a href="global.html#buildPipeline">buildPipeline</a></li><li><a href="global.html#clearPipeline">clearPipeline</a></li><li><a href="global.html#columnDelete">columnDelete</a></li><li><a href="global.html#confirmParams">confirmParams</a></li><li><a href="global.html#downloadResult">downloadResult</a></li><li><a href="global.html#insertColumn">insertColumn</a></li><li><a href="global.html#insertColumnHead">insertColumnHead</a></li><li><a href="global.html#insertColumnTail">insertColumnTail</a></li><li><a href="global.html#insertRow">insertRow</a></li><li><a href="global.html#parseCSV">parseCSV</a></li><li><a href="global.html#previewCSV">previewCSV</a></li><li><a href="global.html#processCSV">processCSV</a></li><li><a href="global.html#readCSVFile">readCSVFile</a></li><li><a href="global.html#rowDelete">rowDelete</a></li><li><a href="global.html#showParamInputs">showParamInputs</a></li><li><a href="global.html#swap">swap</a></li><li><a href="global.html#toCSV">toCSV</a></li><li><a href="global.html#toHtmlTable">toHtmlTable</a></li><li><a href="global.html#transpose">transpose</a></li><li><a href="global.html#tryIO">tryIO</a></li><li><a href="global.html#updatePipelineDisplay">updatePipelineDisplay</a></li></ul>
     
 </nav>
 
@@ -123,6 +123,278 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="buildPipeline"><span class="type-signature type-signature-constant">(constant) </span>buildPipeline<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Builds a pipeline of functions that process data sequentially.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_pipeline.js.html">scripts/pipeline.js</a>, <a href="scripts_pipeline.js.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Builds a pipeline of functions that process data sequentially.</p>
+</div>
+
+
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="parseCSV"><span class="type-signature type-signature-constant">(constant) </span>parseCSV<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Parses a CSV string into a 2D array.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_helper-csv.js.html">scripts/helper-csv.js</a>, <a href="scripts_helper-csv.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Parses a CSV string into a 2D array.</p>
+</div>
+
+
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="readCSVFile"><span class="type-signature type-signature-constant">(constant) </span>readCSVFile<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Reads the content of a CSV file and returns a Promise with the result.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_helper-csv.js.html">scripts/helper-csv.js</a>, <a href="scripts_helper-csv.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Reads the content of a CSV file and returns a Promise with the result.</p>
+</div>
+
+
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="toCSV"><span class="type-signature type-signature-constant">(constant) </span>toCSV<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Converts a 2D array into a CSV string.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_helper-csv.js.html">scripts/helper-csv.js</a>, <a href="scripts_helper-csv.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Converts a 2D array into a CSV string.</p>
+</div>
+
+
+
+
+
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -132,7 +404,7 @@
 
     
 
-    <h4 class="name" id="columnDelete"><span class="type-signature"></span>columnDelete<span class="signature">(n, matrix)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
+    <h4 class="name" id="Left"><span class="type-signature"></span>Left<span class="signature">(value)</span><span class="type-signature"></span></h4>
 
     
 
@@ -142,13 +414,13 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li><p>This function deletes a column from a matrix at the specified position.</p></li></ul></dd>
+    <dd class="tag-description"><ul class="dummy"><li><p>A function that takes a value and returns an object with methods for functional programming.</p></li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="delete.js.html">delete.js</a>, <a href="delete.js.html#line29">line 29</a>
+        <a href="scripts_either.js.html">scripts/either.js</a>, <a href="scripts_either.js.html#line23">line 23</a>
     </li></ul></dd>
     
 
@@ -195,7 +467,503 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>const matrix = [  ["a", "b", "c"],  ["d", "e", "f"],  ["g", "h", "i"]];const n = 1;const newMatrix = columnDelete(n, matrix);console.log(newMatrix);// Output:// [//   ["a", "c"],//   ["d", "f"],//   ["g", "i"]// ];</code></pre>
+    <pre class="prettyprint"><code>const result = Left("Error");
+result.map(x => x + 1); // Left("Error")
+result.chain(x => Right(x * 2)); // Left("Error")
+result.fold(x => x + 1, x => x - 1); // "Error"
+result.isLeft; // true
+result.isRight; // false</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="Right"><span class="type-signature"></span>Right<span class="signature">(value)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>A function that takes a value and returns an object with methods for functional programming.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_either.js.html">scripts/either.js</a>, <a href="scripts_either.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>const result = Right(5);
+result.map(x => x + 1); // Right(6)
+result.chain(x => Right(x * 2)); // Right(10)
+result.fold(x => x + 1, x => x - 1); // Right(4)
+result.isLeft; // false
+result.isRight; // true</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="addToPipeline"><span class="type-signature"></span>addToPipeline<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>This function retrieves the selected transformation functions from a dropdown menu
+and adds them to the <code>currentPipeline</code> array. If a function requires parameters
+(e.g., <code>columnDelete</code>), it displays the parameter input section.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line293">line 293</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-requires">Requires:</h5>
+<ul>
+    <li>module:currentPipeline</li>
+
+    <li>module:document.getElementById</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="clearPipeline"><span class="type-signature"></span>clearPipeline<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>This function resets the <code>currentPipeline</code> array, clears the parameter input section,
+hides the confirm button, and updates the pipeline display.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line273">line 273</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-requires">Requires:</h5>
+<ul>
+    <li>module:currentPipeline</li>
+
+    <li>module:document.getElementById</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="columnDelete"><span class="type-signature"></span>columnDelete<span class="signature">(n, matrix)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>This function deletes a column from a matrix at the specified position.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="functions_delete.js.html">functions/delete.js</a>, <a href="functions_delete.js.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>const matrix = [
+  ["a", "b", "c"],
+  ["d", "e", "f"],
+  ["g", "h", "i"]
+];
+const n = 1;
+const newMatrix = columnDelete(n, matrix);
+console.log(newMatrix);
+// Output:
+// [
+//   ["a", "c"],
+//   ["d", "f"],
+//   ["g", "i"]
+// ];</code></pre>
 
 
 
@@ -321,6 +1089,191 @@
 
     
 
+    <h4 class="name" id="confirmParams"><span class="type-signature"></span>confirmParams<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>This function retrieves user-provided parameters for a transformation function
+(e.g., <code>columnDelete</code>) and adds the function with its parameters to the <code>currentPipeline</code>.
+It also updates the pipeline display and hides the parameter input section.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line241">line 241</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-requires">Requires:</h5>
+<ul>
+    <li>module:currentPipeline</li>
+
+    <li>module:document.getElementById</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="downloadResult"><span class="type-signature"></span>downloadResult<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>This function creates a downloadable CSV file from the <code>processedData</code> variable
+and triggers a download in the browser.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line151">line 151</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-requires">Requires:</h5>
+<ul>
+    <li>module:processedData</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="insertColumn"><span class="type-signature"></span>insertColumn<span class="signature">(file, n, column)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
 
     
@@ -339,7 +1292,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="insertion.js.html">insertion.js</a>, <a href="insertion.js.html#line45">line 45</a>
+        <a href="functions_insertion.js.html">functions/insertion.js</a>, <a href="functions_insertion.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -386,9 +1339,32 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 
     <h5 class="h5-examples">Examples</h5>
     
-    <pre class="prettyprint"><code>const file = [  ["a", "b", "c"],  ["d", "e", "f"],  ["g", "h", "i"]];const column = ["1", "2", "3"];const n = 1;const newFile = insertColumn(file, n, column);// console.log(newFile);// Output:// [//   ["a", "1", "b", "c"],//   ["d", "2", "e", "f"],//   ["g", "3", "h", "i"]// ];</code></pre>
+    <pre class="prettyprint"><code>const file = [
+  ["a", "b", "c"],
+  ["d", "e", "f"],
+  ["g", "h", "i"]
+];
+const column = ["1", "2", "3"];
+const n = 1;
+const newFile = insertColumn(file, n, column);
+// console.log(newFile);
+// Output:
+// [
+//   ["a", "1", "b", "c"],
+//   ["d", "2", "e", "f"],
+//   ["g", "3", "h", "i"]
+// ];</code></pre>
 
-    <pre class="prettyprint"><code>const column = ["1", "2", "3"];const n = -1;const newFile = insertColumn(file, n, column);// console.log(newFile);// Output:// [//   ["a", "b", "c", "1"],//   ["d", "e", "f", "2"],//   ["g", "h", "i", "3"]// ];</code></pre>
+    <pre class="prettyprint"><code>const column = ["1", "2", "3"];
+const n = -1;
+const newFile = insertColumn(file, n, column);
+// console.log(newFile);
+// Output:
+// [
+//   ["a", "b", "c", "1"],
+//   ["d", "e", "f", "2"],
+//   ["g", "h", "i", "3"]
+// ];</code></pre>
 
 
 
@@ -554,7 +1530,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="insertion.js.html">insertion.js</a>, <a href="insertion.js.html#line92">line 92</a>
+        <a href="functions_insertion.js.html">functions/insertion.js</a>, <a href="functions_insertion.js.html#line92">line 92</a>
     </li></ul></dd>
     
 
@@ -738,7 +1714,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="insertion.js.html">insertion.js</a>, <a href="insertion.js.html#line102">line 102</a>
+        <a href="functions_insertion.js.html">functions/insertion.js</a>, <a href="functions_insertion.js.html#line102">line 102</a>
     </li></ul></dd>
     
 
@@ -922,7 +1898,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="insertion.js.html">insertion.js</a>, <a href="insertion.js.html#line3">line 3</a>
+        <a href="functions_insertion.js.html">functions/insertion.js</a>, <a href="functions_insertion.js.html#line3">line 3</a>
     </li></ul></dd>
     
 
@@ -969,7 +1945,22 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>const matrix = [  [1, 2, 3],  [4, 5, 6],  [7, 8, 9]];const row = [10, 11, 12];const n = 1;const newMatrix = insertRow(n, row, matrix);// console.log(newMatrix);// Output:// [//   [1, 2, 3],//   [10, 11, 12],//   [4, 5, 6],//   [7, 8, 9]// ];</code></pre>
+    <pre class="prettyprint"><code>const matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+const row = [10, 11, 12];
+const n = 1;
+const newMatrix = insertRow(n, row, matrix);
+// console.log(newMatrix);
+// Output:
+// [
+//   [1, 2, 3],
+//   [10, 11, 12],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ];</code></pre>
 
 
 
@@ -1119,6 +2110,255 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 
     
 
+    <h4 class="name" id="previewCSV"><span class="type-signature type-signature-async">(async) </span>previewCSV<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>This function performs the following steps:</p>
+<ol>
+<li>Retrieves the file input and preview elements.</li>
+<li>Checks if a file is selected. If not, displays a message prompting the user to select a file.</li>
+<li>Reads the selected CSV file and processes the result:
+<ul>
+<li>On error: Displays the error message in the preview element.</li>
+<li>On success: Updates the preview element with the file content and stores it in <code>currentCSVData</code>.</li>
+</ul>
+</li>
+</ol></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-requires">Requires:</h5>
+<ul>
+    <li>module:getFileInput</li>
+
+    <li>module:getPreviewElement</li>
+
+    <li>module:readCSVFile</li>
+
+    <li>module:Right</li>
+
+    <li>module:currentCSVData</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="processCSV"><span class="type-signature type-signature-async">(async) </span>processCSV<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>This function performs the following steps:</p>
+<ol>
+<li>Checks if <code>currentCSVData</code> is available. If not, it prompts the user to upload a CSV file.</li>
+<li>Maps the <code>currentPipeline</code> to a series of transformation functions.</li>
+<li>Processes the CSV data using a functional pipeline:
+<ul>
+<li>Parses the CSV data.</li>
+<li>Applies the transformations.</li>
+<li>Converts the transformed data back to CSV format.</li>
+</ul>
+</li>
+<li>Handles the result:
+<ul>
+<li>On success: Displays the processed data and enables the download button.</li>
+<li>On error: Displays an error message and disables the download button.</li>
+</ul>
+</li>
+</ol></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line72">line 72</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-requires">Requires:</h5>
+<ul>
+    <li>module:getResultOutput</li>
+
+    <li>module:getDownloadButton</li>
+
+    <li>module:currentCSVData</li>
+
+    <li>module:currentPipeline</li>
+
+    <li>module:rowsToColumns</li>
+
+    <li>module:columnsToRows</li>
+
+    <li>module:columnDelete</li>
+
+    <li>module:parseCSV</li>
+
+    <li>module:buildPipeline</li>
+
+    <li>module:toCSV</li>
+
+    <li>module:Right</li>
+
+    <li>module:processedData</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-throws">Throws:</h5>
+
+        
+
+    <div class="param-desc usertext">
+    
+        <p>Will display an error message in the result output if an error occurs during processing.</p>
+    
+    </div>
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="rowDelete"><span class="type-signature"></span>rowDelete<span class="signature">(index, matrix)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;any>>}</span></h4>
 
     
@@ -1135,7 +2375,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="delete.js.html">delete.js</a>, <a href="delete.js.html#line3">line 3</a>
+        <a href="functions_delete.js.html">functions/delete.js</a>, <a href="functions_delete.js.html#line3">line 3</a>
     </li></ul></dd>
     
 
@@ -1182,7 +2422,19 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>const matrix = [ ["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]];const index = 1;const newMatrix = rowDelete(index, matrix);console.log(newMatrix);// Output:// [//   ["a", "b", "c"],//   ["g", "h", "i"]// ];</code></pre>
+    <pre class="prettyprint"><code>const matrix = [
+ ["a", "b", "c"],
+ ["d", "e", "f"],
+ ["g", "h", "i"]
+];
+const index = 1;
+const newMatrix = rowDelete(index, matrix);
+console.log(newMatrix);
+// Output:
+// [
+//   ["a", "b", "c"],
+//   ["g", "h", "i"]
+// ];</code></pre>
 
 
 
@@ -1308,6 +2560,148 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 
     
 
+    <h4 class="name" id="showParamInputs"><span class="type-signature"></span>showParamInputs<span class="signature">(funcName)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>This function dynamically updates the parameter input section based on the
+selected transformation function. For example, if the function requires
+parameters (e.g., <code>columnDelete</code>), it displays the corresponding input fields.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line172">line 172</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>funcName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name of the transformation function.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<h5 class="h5-requires">Requires:</h5>
+<ul>
+    <li>module:document.getElementById</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="swap"><span class="type-signature"></span>swap<span class="signature">(n, m, matrix)</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
@@ -1324,7 +2718,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="mutation.js.html">mutation.js</a>, <a href="mutation.js.html#line38">line 38</a>
+        <a href="functions_mutation.js.html">functions/mutation.js</a>, <a href="functions_mutation.js.html#line38">line 38</a>
     </li></ul></dd>
     
 
@@ -1371,7 +2765,18 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>const file = [  ["a", "b", "c"],  ["d", "e", "f"],  ["g", "h", "i"]];const swappedFile = swap(0, 1, file);console.log(swappedFile);// Output: [["b", "a", "c"],["e", "d", "f"],["h", "g", "i"]];</code></pre>
+    <pre class="prettyprint"><code>const file = [
+  ["a", "b", "c"],
+  ["d", "e", "f"],
+  ["g", "h", "i"]
+];
+const swappedFile = swap(0, 1, file);
+console.log(swappedFile);
+// Output: [
+["b", "a", "c"],
+["e", "d", "f"],
+["h", "g", "i"]
+];</code></pre>
 
 
 
@@ -1537,7 +2942,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="parser_html.js.html">parser_html.js</a>, <a href="parser_html.js.html#line32">line 32</a>
+        <a href="functions_parser_html.js.html">functions/parser_html.js</a>, <a href="functions_parser_html.js.html#line32">line 32</a>
     </li></ul></dd>
     
 
@@ -1584,7 +2989,31 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>const file = [  ["a", "b", "c"],  ["d", "e", "f"],  ["g", "h", "i"]];const htmlTable = toHtmlTable(file);console.log(htmlTable);// Output:// &lt;table>//     &lt;tr>//         &lt;td>a&lt;/td>//         &lt;td>b&lt;/td>//         &lt;td>c&lt;/td>//     &lt;/tr>//     &lt;tr>//         &lt;td>d&lt;/td>//         &lt;td>e&lt;/td>//         &lt;td>f&lt;/td>//     &lt;/tr>//     &lt;tr>//         &lt;td>g&lt;/td>//         &lt;td>h&lt;/td>//         &lt;td>i&lt;/td>//     &lt;/tr>// &lt;/table></code></pre>
+    <pre class="prettyprint"><code>const file = [
+  ["a", "b", "c"],
+  ["d", "e", "f"],
+  ["g", "h", "i"]
+];
+const htmlTable = toHtmlTable(file);
+console.log(htmlTable);
+// Output:
+// &lt;table>
+//     &lt;tr>
+//         &lt;td>a&lt;/td>
+//         &lt;td>b&lt;/td>
+//         &lt;td>c&lt;/td>
+//     &lt;/tr>
+//     &lt;tr>
+//         &lt;td>d&lt;/td>
+//         &lt;td>e&lt;/td>
+//         &lt;td>f&lt;/td>
+//     &lt;/tr>
+//     &lt;tr>
+//         &lt;td>g&lt;/td>
+//         &lt;td>h&lt;/td>
+//         &lt;td>i&lt;/td>
+//     &lt;/tr>
+// &lt;/table></code></pre>
 
 
 
@@ -1702,7 +3131,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="mutation.js.html">mutation.js</a>, <a href="mutation.js.html#line6">line 6</a>
+        <a href="functions_mutation.js.html">functions/mutation.js</a>, <a href="functions_mutation.js.html#line6">line 6</a>
     </li></ul></dd>
     
 
@@ -1749,7 +3178,28 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>const file = [  ["a", "b", "c"],  ["d", "e", "f"],  ["g", "h", "i"]];const rowsToColumns = transpose(file);const columnsToRows = transpose(rowsToColumns);console.log(rowsToColumns);// Output: [ ["a", "d", "g"], ["b", "e", "h"], ["c", "f", "i"]];console.log(columnsToRows);// Output: [["a", "b", "c"],["d", "e", "f"],["g", "h", "i"]];</code></pre>
+    <pre class="prettyprint"><code>const file = [
+  ["a", "b", "c"],
+  ["d", "e", "f"],
+  ["g", "h", "i"]
+];
+const rowsToColumns = transpose(file);
+const columnsToRows = transpose(rowsToColumns);
+console.log(rowsToColumns);
+
+// Output: [
+ ["a", "d", "g"],
+ ["b", "e", "h"],
+ ["c", "f", "i"]
+];
+
+console.log(columnsToRows);
+
+// Output: [
+["a", "b", "c"],
+["d", "e", "f"],
+["g", "h", "i"]
+];</code></pre>
 
 
 
@@ -1847,6 +3297,261 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 
 
         
+            
+
+    
+
+    <h4 class="name" id="tryIO"><span class="type-signature"></span>tryIO<span class="signature">(f)</span><span class="type-signature"> &rarr; {Either}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>A function that takes a function and returns a Either object.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_either.js.html">scripts/either.js</a>, <a href="scripts_either.js.html#line44">line 44</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>const result = tryIO(() => { throw new Error("Error") });
+result.isLeft; // true
+result.fold(x => x + 1, x => x - 1); // "Error"</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Either</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="updatePipelineDisplay"><span class="type-signature"></span>updatePipelineDisplay<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>This function updates the pipeline display element to reflect the current
+state of the <code>currentPipeline</code> array. It lists all selected transformation
+functions and their parameters, if applicable.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_main.js.html">scripts/main.js</a>, <a href="scripts_main.js.html#line221">line 221</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-requires">Requires:</h5>
+<ul>
+    <li>module:currentPipeline</li>
+
+    <li>module:document.getElementById</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     
 
     
@@ -1866,7 +3571,7 @@ The column must match the number of rows in the file.</p></li></ul></dd>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Sun Mar 30 2025 18:53:23 GMT-0300 (Chile Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Sun Mar 30 2025 19:33:43 GMT-0300 (Chile Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
