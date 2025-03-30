@@ -7,6 +7,28 @@
 | Sebastián Lobo Cáceres | salobo@uc.cl|
 | Anita Martí Campos | asmarti@uc.cl |
 
+> [!NOTE]
+> La entrega es el 11-11-2024
+
+## :file_folder: Estructura de archivos
+Por motivos prácticos, no se muestra la carpeta docs, debido a que es autogenerada con ```jsdoc```.
+```
+├── data
+    ├── csv_example.csv
+├── src
+    ├── functions
+        ├── delete.js
+        ├── insertions.js
+        ├── mutation.js
+        ├── parse_html.js
+    ├── helper.js
+├── .gitignore
+├── index.js
+├── jsdoc.json
+├── package.json
+├── README.md
+```
+
 El objetivo es desarrollar una solución funcional en **JavaScript** a un problema de cierta complejidad. Se espera que utilicen el máximo de elementos funcionales posibles. Por ejemplo:
 
 * Iterators y Generators
@@ -15,7 +37,7 @@ El objetivo es desarrollar una solución funcional en **JavaScript** a un proble
 * Composición y Pipes
 * Chaining
 
-## Desafío
+## :computer: Desafío
 
 El problema a resolver es la transformación de archivos CSV.  Básicamente un formato que se usa para ingresar información tabular en forma de texto. Los campos se separan por comas y las filas por \n (new line). Por ejemplo, el archivo siguiente:
 
@@ -35,9 +57,9 @@ Corresponde a la siguiente tabla
 |Luis | Prado  | lprado@gmail.com  |
 
 
-## Funciones Desarrolladas
+## Funciones Principales Desarrolladas
 
-El proyecto permite manipular archivos CSV mediante diversas funciones:  
+El proyecto permite manipular archivos CSV mediante diversas funciones, a continuación se presentan las principales. De todas formas, en la documentación se explica el resto de ellas:  
 
 ### 🔄 Modificación de Estructura  
 - 🔀 **`swap(file, n, m)`** – Intercambia las columnas `n` y `m`.  
@@ -59,3 +81,17 @@ El proyecto permite manipular archivos CSV mediante diversas funciones:
 
 ## Instalación
 
+### Pasos previos requeridos
+1. Instalar [Node](https://nodejs.org/en)
+2. Instalar [Git](https://git-scm.com/)
+3. Instalar [Python](https://www.python.org/)
+
+### Despues
+1. Clonar el repositorio mediante git.
+```bash
+git clone https://github.com/IIC3585/2025-1-s1-g1-t1.git
+```
+2. Instalar las dependencias
+```bash
+npm install
+```
