@@ -6,13 +6,13 @@ export const functionConfigs = {
         inputs: [
             { label: 'Índice de columna a eliminar (0-based):', id: 'columnIndex', type: 'number', attrs: { min: '0', value: '0', style: 'width: 60px;' } }
         ],
-        paramBuilder: () => ({ columnIndex: parseInt(getElement('columnIndex').value) })
+        paramBuilder: () => ({ columnIndex: parseInt(document.getElementById('columnIndex').value) })
     },
     rowDelete: {
         inputs: [
             { label: 'Índice de fila a eliminar (0-based):', id: 'rowIndex', type: 'number', attrs: { min: '0', value: '0', style: 'width: 60px;' } }
         ],
-        paramBuilder: () => ({ rowIndex: parseInt(getElement('rowIndex').value) })
+        paramBuilder: () => ({ rowIndex: parseInt(document.getElementById('rowIndex').value) })
     },
     swap: {
         inputs: [
@@ -20,8 +20,8 @@ export const functionConfigs = {
             { label: 'Índice de columna m:', id: 'mIndex', type: 'number', attrs: { min: '0', value: '0', style: 'width: 60px;' } }
         ],
         paramBuilder: () => ({ 
-            n: parseInt(getElement('nIndex').value), 
-            m: parseInt(getElement('mIndex').value) 
+            n: parseInt(document.getElementById('nIndex').value), 
+            m: parseInt(document.getElementById('mIndex').value) 
         })
     },
     insertColumn: {
@@ -30,8 +30,8 @@ export const functionConfigs = {
             { label: 'Valores de la nueva columna (separados por comas):', id: 'columnValues', type: 'text', attrs: { placeholder: 'valor1, valor2, ...', style: 'width: 200px;' } }
         ],
         paramBuilder: () => ({ 
-            index: parseInt(getElement('columnIndex').value), 
-            values: getElement('columnValues').value.split(',').map(val => val.trim()) 
+            index: parseInt(document.getElementById('columnIndex').value), 
+            values: document.getElementById('columnValues').value.split(',').map(val => val.trim()) 
         })
     },
     insertRow: {
@@ -40,8 +40,8 @@ export const functionConfigs = {
             { label: 'Valores de la nueva fila (separados por comas):', id: 'rowValues', type: 'text', attrs: { placeholder: 'valor1, valor2, ...', style: 'width: 200px;' } }
         ],
         paramBuilder: () => ({ 
-            index: parseInt(getElement('rowIndex').value), 
-            values: getElement('rowValues').value.split(',').map(val => val.trim()) 
+            index: parseInt(document.getElementById('rowIndex').value), 
+            values: document.getElementById('rowValues').value.split(',').map(val => val.trim()) 
         })
     },
     insertColumnHead: {
@@ -49,7 +49,7 @@ export const functionConfigs = {
             { label: 'Valores de la nueva columna (separados por comas):', id: 'columnValues', type: 'text', attrs: { placeholder: 'valor1, valor2, ...', style: 'width: 200px;' } }
         ],
         paramBuilder: () => ({ 
-            values: getElement('columnValues').value.split(',').map(val => val.trim()) 
+            values: document.getElementById('columnValues').value.split(',').map(val => val.trim()) 
         })
     },
     insertColumnTail: {
@@ -57,7 +57,7 @@ export const functionConfigs = {
             { label: 'Valores de la nueva columna (separados por comas):', id: 'columnValues', type: 'text', attrs: { placeholder: 'valor1, valor2, ...', style: 'width: 200px;' } }
         ],
         paramBuilder: () => ({ 
-            values: getElement('columnValues').value.split(',').map(val => val.trim()) 
+            values: document.getElementById('columnValues').value.split(',').map(val => val.trim()) 
         })
     },
     rowsToColumns: { inputs: [] },

@@ -21,6 +21,9 @@ import {
     insertRow
   } from "../functions/insertion.js";
 
+import { toHtmlTable } from '../functions/parser_html.js'
+import * as domFunctions from './dom-handlers.js'
+
 let currentPipeline = [];
 let processedData = null;
 let currentCSVData = null;
@@ -162,8 +165,8 @@ export function toHtmlTableDisplay() {
     const parsedData = parseCSV(processedData);
     const table = toHtmlTable(parsedData);
     const containerTable = document.getElementById('containerTable');
-    containerTable.innerHTML = '';
-    containerTable.appendChild(table);
+    containerTable.innerHTML = table;
+    containerTable.style.display = 'block';
 }
 
 /**
@@ -263,7 +266,7 @@ export function confirmParams() {
         currentPipeline.push({ name: funcName, params });
     }
 
-    domFunctions.getParamInputs().innerHTML = '';
+    domFunctions.getParamDiv().innerHTML = '';
     domFunctions.getConfirmBtn().style.display = 'none';
     updatePipelineDisplay();
 }

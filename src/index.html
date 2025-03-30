@@ -57,25 +57,17 @@
     <div>
         <h3>Resultado:</h3>
         <pre id="resultOutput"></pre>
-<<<<<<< HEAD
-        <button onclick="toHtmlTableDisplay()" id="downloadBtn" disabled>Descargar Resultado</button>
+        <button onclick="toHtmlTableDisplay()" id="downloadBtn" disabled>Generar Tabla</button>
         <div id="containerTable">
             <!-- Aquí se mostrará la tabla HTML -->
         </div>
-=======
-        <button onclick="downloadResult()" id="downloadBtn" disabled>Descargar Resultado</button>
->>>>>>> main
     </div>
 
     <script type="module">
         import * as mainFunctions from './scripts/main.js';
         window.previewCSV = mainFunctions.previewCSV;
         window.processCSV = mainFunctions.processCSV;
-<<<<<<< HEAD
         window.toHtmlTableDisplay = mainFunctions.toHtmlTableDisplay;
-=======
-        window.downloadResult = mainFunctions.downloadResult;
->>>>>>> main
         window.addToPipeline = mainFunctions.addToPipeline;
         window.clearPipeline = mainFunctions.clearPipeline;
         window.confirmParams = mainFunctions.confirmParams;
