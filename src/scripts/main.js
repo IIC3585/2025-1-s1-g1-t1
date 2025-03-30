@@ -20,15 +20,13 @@ import {
     insertColumnTail,
     insertRow
   } from "../functions/insertion.js";
+import * as domFunctions from './dom-handlers.js'
 
 let currentPipeline = [];
 let processedData = null;
 let currentCSVData = null;
 
-const getFileInput = () => document.getElementById('csvFileInput');
-const getPreviewElement = () => document.getElementById('csvPreview');
-const getResultOutput = () => document.getElementById('resultOutput');
-const getDownloadButton = () => document.getElementById('downloadBtn');
+
 
 
 /**
@@ -53,8 +51,8 @@ const getDownloadButton = () => document.getElementById('downloadBtn');
  */
 
 export async function previewCSV() {
-    const preview = getPreviewElement();
-    const fileInput = getFileInput();
+    const preview = domFunctions.getPreviewElement();
+    const fileInput = domFunctions.getFileInput();
 
     if (fileInput.files.length === 0) {
         preview.textContent = "Por favor, selecciona un archivo CSV";
@@ -108,8 +106,8 @@ export async function previewCSV() {
  */
 
 export async function processCSV() {
-    const resultOutput = getResultOutput();
-    const downloadBtn = getDownloadButton();
+    const resultOutput = domFunctions.getResultOutput();
+    const downloadBtn = domFunctions.getDownloadButton();
 
     if (!currentCSVData) {
         resultOutput.textContent = "Por favor, carga un archivo CSV primero"
@@ -191,67 +189,37 @@ export function downloadResult() {
 
 
 function showParamInputs(funcName) {
-    const paramDiv = document.getElementById('paramInputs')
-    const confirmBtn = document.getElementById('confirmParamsBtn')
-    paramDiv.innerHTML = ''
+    const paramDiv = domFunctions.getParamDiv()
+    const confirmBtn = domFunctions.getConfirmBtn()
+    paramDiv.innerHTML = '';
 
-    if (funcName === 'columnDelete') {
-        paramDiv.innerHTML = `
-        <label>Índice de columna a eliminar (0-based):</label>
-        <input type="number" id="columnIndex" min="0" value="0" style="width: 60px;">
-      `
-        confirmBtn.style.display = 'inline-block'
+    const config = domFunctions.functionConfigs[funcName];
+    if (!config) {
+        confirmBtn.style.display = 'none';
+        return;
     }
-    else if (funcName === 'rowDelete') {
-        paramDiv.innerHTML = `
-        <label>Índice de fila a eliminar (0-based):</label>
-        <input type="number" id="rowIndex" min="0" value="0" style="width: 60px;">
-      `
-        confirmBtn.style.display = 'inline-block'
-    } 
-    else if (funcName === 'swap') {
-        paramDiv.innerHTML = `
-        <label>Índice de columna n:</label>
-        <input type="number" id="nIndex" min="0" value="0" style="width: 60px;">
-        <label>Índice de columna m:</label>
-        <input type="number" id="mIndex" min="0" value="0" style="width: 60px;">
-      `
-        confirmBtn.style.display = 'inline-block'
-    } 
-    else if (funcName === 'insertColumn') {
-        paramDiv.innerHTML = `
-        <label>Índice de columna a insertar:</label>
-        <input type="number" id="columnIndex" min="0" value="0" style="width: 60px;">
-        <label>Valores de la nueva columna (separados por comas):</label>
-        <input type="text" id="columnValues" placeholder="valor1, valor2, ..." style="width: 200px;">
-      `
-        confirmBtn.style.display = 'inline-block'
-    } else if (funcName === 'insertRow') {
-        paramDiv.innerHTML = `
-        <label>Índice de fila a insertar:</label>
-        <input type="number" id="rowIndex" min="0" value="0" style="width: 60px;">
-        <label>Valores de la nueva fila (separados por comas):</label>
-        <input type="text" id="rowValues" placeholder="valor1, valor2, ..." style="width: 200px;">
-      `
-        confirmBtn.style.display = 'inline-block'
-    }
-    else if (funcName === 'insertColumnHead') {
-        paramDiv.innerHTML = `
-        <label>Valores de la nueva columna (separados por comas):</label>
-        <input type="text" id="columnValues" placeholder="valor1, valor2, ..." style="width: 200px;">
-      `
-        confirmBtn.style.display = 'inline-block'
-    } else if (funcName === 'insertColumnTail') {
-        paramDiv.innerHTML = `
-        <label>Valores de la nueva columna (separados por comas):</label>
-        <input type="text" id="columnValues" placeholder="valor1, valor2, ..." style="width: 200px;">
-      `
-        confirmBtn.style.display = 'inline-block'
-    }
-    
-    else {
-        confirmBtn.style.display = 'none'
-    }
+
+    config.inputs.forEach(inputConfig => {
+        paramDiv.appendChild(domFunctions.createInputGroup(inputConfig));
+    });
+    confirmBtn.style.display = 'inline-block';
+}
+
+
+
+function getFunctionDescription(item) {
+    const descriptions = {
+        columnDelete: () => `• ${item.name} (columna ${item.params.columnIndex})`,
+        rowDelete: () => `• ${item.name} (fila ${item.params.rowIndex})`,
+        swap: () => `• ${item.name} (n: ${item.params.n}, m: ${item.params.m})`,
+        insertColumn: () => `• ${item.name} (índice: ${item.params.index}, valores: ${item.params.values.join(', ')})`,
+        insertRow: () => `• ${item.name} (índice: ${item.params.index}, valores: ${item.params.values.join(', ')})`,
+        insertColumnHead: () => `• ${item.name} (valores: ${item.params.values.join(', ')})`,
+        insertColumnTail: () => `• ${item.name} (valores: ${item.params.values.join(', ')})`,
+        default: () => `• ${item.name}`
+    };
+
+    return (descriptions[item.name] || descriptions.default)();
 }
 
 /**
@@ -267,38 +235,11 @@ function showParamInputs(funcName) {
  * @requires currentPipeline - Array of transformation steps to display.
  * @requires document.getElementById - To access and modify DOM elements.
  */
-
-function updatePipelineDisplay() {
-    const display = document.getElementById('pipelineDisplay')
+export function updatePipelineDisplay() {
+    const display = domFunctions.getPipelineDisplay()
     display.innerHTML = currentPipeline.length > 0
-        ? currentPipeline.map(item => {
-            let desc = `• ${item.name}`
-            if (item.params) {
-                if (item.name === 'columnDelete') {
-                    desc += ` (columna ${item.params.columnIndex})`
-                }
-                else if (item.name === 'rowDelete') {
-                    desc += ` (fila ${item.params.rowIndex})`
-                }
-                else if (item.name === 'swap') {
-                    desc += ` (n: ${item.params.n}, m: ${item.params.m})`
-                }
-                else if (item.name === 'insertColumn') {
-                    desc += ` (índice: ${item.params.index}, valores: ${item.params.values.join(', ')})`
-                }
-                else if (item.name === 'insertRow') {
-                    desc += ` (índice: ${item.params.index}, valores: ${item.params.values.join(', ')})`
-                }
-                else if (item.name === 'insertColumnHead') {
-                    desc += ` (valores: ${item.params.values.join(', ')})`
-                }
-                else if (item.name === 'insertColumnTail') {
-                    desc += ` (valores: ${item.params.values.join(', ')})`
-                }
-            }
-            return `<div>${desc}</div>`
-        }).join('')
-        : '<div>Ninguna función seleccionada</div>'
+        ? currentPipeline.map(item => `<div>${getFunctionDescription(item)}</div>`).join('')
+        : '<div>Ninguna función seleccionada</div>';
 }
 
 /**
@@ -315,101 +256,24 @@ function updatePipelineDisplay() {
  * @requires document.getElementById - To access and modify DOM elements.
  */
 
-
 export function confirmParams() {
-    const funcName = document.getElementById('functionSelect').value
+    const funcName = domFunctions.getFunctionSelect().value;
+    const config = domFunctions.functionConfigs[funcName];
 
-    if (funcName === 'columnDelete') {
-        const columnIndex = parseInt(document.getElementById('columnIndex').value)
-        if (isNaN(columnIndex)) return
-
-        currentPipeline.push({
-            name: funcName,
-            params: { columnIndex }
-        })
-        document.getElementById('paramInputs').innerHTML = ''
-        document.getElementById('confirmParamsBtn').style.display = 'none'
-        updatePipelineDisplay()
-    }
-    else if (funcName === 'rowDelete') {
-        const rowIndex = parseInt(document.getElementById('rowIndex').value)
-        if (isNaN(rowIndex)) return
-        currentPipeline.push({
-            name: funcName,
-            params: { rowIndex }
-        })
-        document.getElementById('paramInputs').innerHTML = ''
-        document.getElementById('confirmParamsBtn').style.display = 'none'
-        updatePipelineDisplay()
+    if (!config || !config.paramBuilder) {
+        currentPipeline.push({ name: funcName, params: null });
+    } else {
+        const params = config.paramBuilder();
+        if (Object.values(params).some(val => val === undefined || (Array.isArray(val) && val.length === 0))) {
+            return;
+        }
+        currentPipeline.push({ name: funcName, params });
     }
 
-    else if (funcName === 'swap') {
-        const nIndex = parseInt(document.getElementById('nIndex').value)
-        const mIndex = parseInt(document.getElementById('mIndex').value)
-        if (isNaN(nIndex) || isNaN(mIndex)) return
-
-        currentPipeline.push({
-            name: funcName,
-            params: { n: nIndex, m: mIndex }
-        })
-        document.getElementById('paramInputs').innerHTML = ''
-        document.getElementById('confirmParamsBtn').style.display = 'none'
-        updatePipelineDisplay()
-    }
-    else if (funcName === 'insertColumn') {
-        const columnIndex = parseInt(document.getElementById('columnIndex').value)
-        const columnValues = document.getElementById('columnValues').value.split(',').map(val => val.trim())
-        if (isNaN(columnIndex) || columnValues.length === 0) return
-
-        currentPipeline.push({
-            name: funcName,
-            params: { index: columnIndex, values: columnValues }
-        })
-        document.getElementById('paramInputs').innerHTML = ''
-        document.getElementById('confirmParamsBtn').style.display = 'none'
-        updatePipelineDisplay()
-    }
-    else if (funcName === 'insertRow') {
-        const rowIndex = parseInt(document.getElementById('rowIndex').value)
-        const rowValues = document.getElementById('rowValues').value.split(',').map(val => val.trim())
-        if (isNaN(rowIndex) || rowValues.length === 0) return
-
-        currentPipeline.push({
-            name: funcName,
-            params: { index: rowIndex, values: rowValues }
-        })
-        document.getElementById('paramInputs').innerHTML = ''
-        document.getElementById('confirmParamsBtn').style.display = 'none'
-        updatePipelineDisplay()
-    }
-    else if (funcName === 'insertColumnHead') {
-        const columnValues = document.getElementById('columnValues').value.split(',').map(val => val.trim())
-        if (columnValues.length === 0) return
-
-        currentPipeline.push({
-            name: funcName,
-            params: { values: columnValues }
-        })
-        document.getElementById('paramInputs').innerHTML = ''
-        document.getElementById('confirmParamsBtn').style.display = 'none'
-        updatePipelineDisplay()
-    }
-    else if (funcName === 'insertColumnTail') {
-        const columnValues = document.getElementById('columnValues').value.split(',').map(val => val.trim())
-        if (columnValues.length === 0) return
-
-        currentPipeline.push({
-            name: funcName,
-            params: { values: columnValues }
-        })
-        document.getElementById('paramInputs').innerHTML = ''
-        document.getElementById('confirmParamsBtn').style.display = 'none'
-        updatePipelineDisplay()
-    }
+    domFunctions.getParamInputs().innerHTML = '';
+    domFunctions.getConfirmBtn().style.display = 'none';
+    updatePipelineDisplay();
 }
-
-
-
 /**
  * Clears the current transformation pipeline.
  *
@@ -445,36 +309,17 @@ export function clearPipeline() {
  */
 
 export function addToPipeline() {
-    const select = document.getElementById('functionSelect')
-    const selected = Array.from(select.selectedOptions).map(opt => opt.value)
+    const select = getFunctionSelect();
+    const selected = Array.from(select.selectedOptions).map(opt => opt.value);
 
     selected.forEach(funcName => {
         if (!currentPipeline.some(item => item.name === funcName)) {
-            if (funcName === 'columnDelete') {
-                showParamInputs(funcName)
-            }
-            else if (funcName === 'rowDelete') {
-                showParamInputs(funcName)
-            } 
-            else if (funcName === 'swap') {
-                showParamInputs(funcName)
-            } 
-            else if (funcName === 'insertColumn') {
-                showParamInputs(funcName)
-            } 
-            else if (funcName === 'insertRow') {
-                showParamInputs(funcName)
-            } 
-            else if (funcName === 'insertColumnHead') {
-                showParamInputs(funcName)
-            } 
-            else if (funcName === 'insertColumnTail') {
-                showParamInputs(funcName)
-            }
-            else {
-                currentPipeline.push({ name: funcName, params: null })
-                updatePipelineDisplay()
+            if (functionConfigs[funcName]?.inputs?.length > 0) {
+                showParamInputs(funcName);
+            } else {
+                currentPipeline.push({ name: funcName, params: null });
+                updatePipelineDisplay();
             }
         }
-    })
+    });
 }
