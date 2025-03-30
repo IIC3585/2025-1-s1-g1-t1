@@ -1,5 +1,5 @@
-import _ from "lodash";
-import { pipe } from "../helper.js";
+import _ from "https://cdn.jsdelivr.net/npm/lodash-es/lodash.js";
+import { pipe } from "../scripts/pipeline.js";
 
 const HTML_TAGS = {
     TABLE: "table",
@@ -16,7 +16,7 @@ const createHtmlTag = _.curry((tag, indentation, content) => {
     let indent = INDENTATION.NEW_LINE + INDENTATION.TAB.repeat(indentation)
 
     const openingTag = `${indent}<${tag}>`;
-    const closingTag = tag === HTML_TAGS.CELL ? `</${tag}>`: `${indent}</${tag}>`;
+    const closingTag = tag === HTML_TAGS.CELL ? `</${tag}>` : `${indent}</${tag}>`;
     content = Array.isArray(content) ? content.join("") : content;
     return `${openingTag}${content}${closingTag}`;
 })
