@@ -8,7 +8,7 @@
 | Anita Martí Campos | asmarti@uc.cl |
 
 > [!NOTE]
-> La entrega es el 11-11-2024
+> Fecha de entrega 31-03-2025
 
 ## :file_folder: Estructura de archivos
 Por motivos prácticos, no se muestra la carpeta docs, debido a que es autogenerada con ```jsdoc```.
