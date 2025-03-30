@@ -21,9 +21,15 @@ Por motivos prácticos, no se muestra la carpeta docs, debido a que es autogener
         ├── insertions.js
         ├── mutation.js
         ├── parse_html.js
-    ├── helper.js
+    ├── scripts
+        ├── dom-handlers.js
+        ├── either.js
+        ├── helper-csv.js
+        ├── main.js
+        ├── pipeline.js
+    ├── index.html
+    ├── style.css
 ├── .gitignore
-├── index.js
 ├── jsdoc.json
 ├── package.json
 ├── README.md
@@ -85,6 +91,7 @@ El proyecto permite manipular archivos CSV mediante diversas funciones, a contin
 1. Instalar [Node](https://nodejs.org/en)
 2. Instalar [Git](https://git-scm.com/)
 3. Instalar [Python](https://www.python.org/)
+4. Instalar extensión VSCode Live Server. Para eso, abra VSCode y escriba ```ctrl+P```, escriba ```ext install ritwickdey.liveserver.```
 
 ### Despues
 1. Clonar el repositorio mediante git.
@@ -95,3 +102,4 @@ git clone https://github.com/IIC3585/2025-1-s1-g1-t1.git
 ```bash
 npm install
 ```
+3. Inicialice live server con el index.html dentro de la carpeta src
