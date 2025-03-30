@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from "https://cdn.jsdelivr.net/npm/lodash-es/lodash.js";
 
 /**
  * @function rowDelete
