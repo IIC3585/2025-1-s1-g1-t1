@@ -1,4 +1,53 @@
-import { Right} from './either.js'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>scripts/main.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/IIC3585/2025-1-s1-g1-t1" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Global</h3><ul><li><a href="global.html#Left">Left</a></li><li><a href="global.html#Right">Right</a></li><li><a href="global.html#addToPipeline">addToPipeline</a></li><li><a href="global.html#buildPipeline">buildPipeline</a></li><li><a href="global.html#clearPipeline">clearPipeline</a></li><li><a href="global.html#columnDelete">columnDelete</a></li><li><a href="global.html#confirmParams">confirmParams</a></li><li><a href="global.html#downloadResult">downloadResult</a></li><li><a href="global.html#insertColumn">insertColumn</a></li><li><a href="global.html#insertColumnHead">insertColumnHead</a></li><li><a href="global.html#insertColumnTail">insertColumnTail</a></li><li><a href="global.html#insertRow">insertRow</a></li><li><a href="global.html#parseCSV">parseCSV</a></li><li><a href="global.html#previewCSV">previewCSV</a></li><li><a href="global.html#processCSV">processCSV</a></li><li><a href="global.html#readCSVFile">readCSVFile</a></li><li><a href="global.html#rowDelete">rowDelete</a></li><li><a href="global.html#showParamInputs">showParamInputs</a></li><li><a href="global.html#swap">swap</a></li><li><a href="global.html#toCSV">toCSV</a></li><li><a href="global.html#toHtmlTable">toHtmlTable</a></li><li><a href="global.html#transpose">transpose</a></li><li><a href="global.html#tryIO">tryIO</a></li><li><a href="global.html#updatePipelineDisplay">updatePipelineDisplay</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">scripts/main.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Right} from './either.js'
 import { buildPipeline } from './pipeline.js'
 import { parseCSV, toCSV, readCSVFile } from './helper-csv.js'
 import {
@@ -20,16 +69,11 @@ import {
     insertColumnTail,
     insertRow
   } from "../functions/insertion.js";
-
-  import { toHtmlTable } from "../functions/parser_html.js";
 import * as domFunctions from './dom-handlers.js'
 
 let currentPipeline = [];
 let processedData = null;
 let currentCSVData = null;
-
-
-
 
 /**
  * Previews the content of a selected CSV file in the preview element.
@@ -162,13 +206,17 @@ export async function processCSV() {
  * @requires processedData - The processed CSV data to be downloaded.
  */
 
-export function toHtmlTableDisplay() {
-    if (!processedData) return;
-    const parsedData = parseCSV(processedData);
-    const table = toHtmlTable(parsedData);
-    const containerTable = document.getElementById('containerTable');
-    containerTable.innerHTML = '';
-    containerTable.appendChild(table);
+export function downloadResult() {
+    if (!processedData) return
+    const blob = new Blob([ processedData ], { type: 'text/csv' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'resultado_procesado.csv'
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
 }
 
 /**
@@ -236,8 +284,8 @@ function getFunctionDescription(item) {
 export function updatePipelineDisplay() {
     const display = domFunctions.getPipelineDisplay()
     display.innerHTML = currentPipeline.length > 0
-        ? currentPipeline.map(item => `<div>${getFunctionDescription(item)}</div>`).join('')
-        : '<div>Ninguna función seleccionada</div>';
+        ? currentPipeline.map(item => `&lt;div>${getFunctionDescription(item)}&lt;/div>`).join('')
+        : '&lt;div>Ninguna función seleccionada&lt;/div>';
 }
 
 /**
@@ -262,7 +310,7 @@ export function confirmParams() {
         currentPipeline.push({ name: funcName, params: null });
     } else {
         const params = config.paramBuilder();
-        if (Object.values(params).some(val => val === undefined || (Array.isArray(val) && val.length === 0))) {
+        if (Object.values(params).some(val => val === undefined || (Array.isArray(val) &amp;&amp; val.length === 0))) {
             return;
         }
         currentPipeline.push({ name: funcName, params });
@@ -307,12 +355,12 @@ export function clearPipeline() {
  */
 
 export function addToPipeline() {
-    const select = domFunctions.getFunctionSelect();
+    const select = getFunctionSelect();
     const selected = Array.from(select.selectedOptions).map(opt => opt.value);
 
     selected.forEach(funcName => {
         if (!currentPipeline.some(item => item.name === funcName)) {
-            if (domFunctions.functionConfigs[funcName]?.inputs?.length > 0) {
+            if (functionConfigs[funcName]?.inputs?.length > 0) {
                 showParamInputs(funcName);
             } else {
                 currentPipeline.push({ name: funcName, params: null });
@@ -321,3 +369,32 @@ export function addToPipeline() {
         }
     });
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Sun Mar 30 2025 18:44:31 GMT-0300 (Chile Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>
