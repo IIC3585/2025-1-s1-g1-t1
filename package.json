@@ -2,9 +2,11 @@
   "name": "t1",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "rm -rf docs && npx jsdoc -c jsdoc.json"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +14,9 @@
   "description": "",
   "dependencies": {
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "docdash": "^2.0.2",
+    "jsdoc": "^4.0.4"
   }
 }
