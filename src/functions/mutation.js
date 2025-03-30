@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from "https://cdn.jsdelivr.net/npm/lodash-es/lodash.js";
 
 const rowsToColumns = (data) => transpose(data);
 const columnsToRows = (data) => transpose(data);
@@ -66,8 +66,6 @@ const swap = _.curry((n, m, matrix) =>
 );
 
 export {
-    columnDelete,
-    insertColumn,
     transpose,
     rowsToColumns,
     columnsToRows,
