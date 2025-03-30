@@ -31,7 +31,7 @@
     <input type="text" id="nav-search" placeholder="Search" />
     
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/IIC3585/2025-1-s1-g1-t1" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Global</h3><ul><li><a href="global.html#insertColumn">insertColumn</a></li><li><a href="global.html#insertColumnHead">insertColumnHead</a></li><li><a href="global.html#insertColumnTail">insertColumnTail</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/IIC3585/2025-1-s1-g1-t1" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Global</h3><ul><li><a href="global.html#columnDelete">columnDelete</a></li><li><a href="global.html#insertColumn">insertColumn</a></li><li><a href="global.html#insertColumnHead">insertColumnHead</a></li><li><a href="global.html#insertColumnTail">insertColumnTail</a></li><li><a href="global.html#insertRow">insertRow</a></li><li><a href="global.html#rowDelete">rowDelete</a></li><li><a href="global.html#swap">swap</a></li><li><a href="global.html#toHtmlTable">toHtmlTable</a></li><li><a href="global.html#transpose">transpose</a></li></ul>
     
 </nav>
 
@@ -61,6 +61,135 @@
 
 
 
+    <section class="readme usertext">
+        <article><h4>IIC3585-1 SECCIÓN 1 - GRUPO 1</h4>
+<h1>🤖 Trabajo 1: JavaScript Funcional</h1>
+<table>
+<thead>
+<tr>
+<th>Integrantes</th>
+<th>Mail UC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tarek Elías Hirmas Aboid</td>
+<td>tarek.hirmas@uc.cl</td>
+</tr>
+<tr>
+<td>Sebastián Lobo Cáceres</td>
+<td>salobo@uc.cl</td>
+</tr>
+<tr>
+<td>Anita Martí Campos</td>
+<td>asmarti@uc.cl</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!NOTE]
+Fecha de entrega 31-03-2025</p>
+</blockquote>
+<h2>📁 Estructura de archivos</h2>
+<p>Por motivos prácticos, no se muestra la carpeta docs, debido a que es autogenerada con <code>jsdoc</code>.</p>
+<pre class="prettyprint source"><code>├── data
+    ├── csv_example.csv
+├── src
+    ├── functions
+        ├── delete.js
+        ├── insertions.js
+        ├── mutation.js
+        ├── parse_html.js
+    ├── helper.js
+├── .gitignore
+├── index.js
+├── jsdoc.json
+├── package.json
+├── README.md
+</code></pre>
+<p>El objetivo es desarrollar una solución funcional en <strong>JavaScript</strong> a un problema de cierta complejidad. Se espera que utilicen el máximo de elementos funcionales posibles. Por ejemplo:</p>
+<ul>
+<li>Iterators y Generators</li>
+<li>Uso de la librería Lodash</li>
+<li>Currying y partial evaluation</li>
+<li>Composición y Pipes</li>
+<li>Chaining</li>
+</ul>
+<h2>💻 Desafío</h2>
+<p>El problema a resolver es la transformación de archivos CSV.  Básicamente un formato que se usa para ingresar información tabular en forma de texto. Los campos se separan por comas y las filas por \n (new line). Por ejemplo, el archivo siguiente:</p>
+<pre class="prettyprint source"><code>Juan, Perez, jperez@gmail.com
+Ana, Flores, aflores@gmail.com
+Luis, Prado, lprado@gmail.com
+</code></pre>
+<p>Corresponde a la siguiente tabla</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><!-- --></th>
+<th style="text-align:center"><!-- --></th>
+<th style="text-align:center"><!-- --></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Juan</td>
+<td style="text-align:center">Perez</td>
+<td style="text-align:center">jperez@gmail.com</td>
+</tr>
+<tr>
+<td style="text-align:center">Ana</td>
+<td style="text-align:center">Flores</td>
+<td style="text-align:center">aflores@gmail.com</td>
+</tr>
+<tr>
+<td style="text-align:center">Luis</td>
+<td style="text-align:center">Prado</td>
+<td style="text-align:center">lprado@gmail.com</td>
+</tr>
+</tbody>
+</table>
+<h2>Funciones Principales Desarrolladas</h2>
+<p>El proyecto permite manipular archivos CSV mediante diversas funciones, a continuación se presentan las principales. De todas formas, en la documentación se explica el resto de ellas:</p>
+<h3>🔄 Modificación de Estructura</h3>
+<ul>
+<li>🔀 <strong><code>swap(file, n, m)</code></strong> – Intercambia las columnas <code>n</code> y <code>m</code>.</li>
+<li>↔️ <strong><code>rowstocolumns(file)</code></strong> – Convierte filas en columnas.</li>
+<li>↕️ <strong><code>columnstorows(file)</code></strong> – Convierte columnas en filas.</li>
+</ul>
+<h3>❌ Eliminación de Datos</h3>
+<ul>
+<li>🗑️ <strong><code>rowdelete(file, n)</code></strong> – Elimina la fila <code>n</code>.</li>
+<li>🗑️ <strong><code>columndelete(file, n)</code></strong> – Elimina la columna <code>n</code>.</li>
+</ul>
+<h3>➕ Inserción de Datos</h3>
+<ul>
+<li>➕ <strong><code>insertrow(file, n, row)</code></strong> – Inserta una fila después de la fila <code>n</code> con la información dada en la lista <code>row</code>.</li>
+<li>➕ <strong><code>insertcolumn(file, n, column)</code></strong> – Inserta una columna después de la columna <code>n</code> con la información dada en la lista <code>column</code>.</li>
+</ul>
+<h3>📄 Exportación</h3>
+<ul>
+<li>🌐 <strong><code>tohtmltable(file)</code></strong> – Convierte el archivo en una tabla HTML.</li>
+</ul>
+<h2>Instalación</h2>
+<h3>Pasos previos requeridos</h3>
+<ol>
+<li>Instalar <a href="https://nodejs.org/en">Node</a></li>
+<li>Instalar <a href="https://git-scm.com/">Git</a></li>
+<li>Instalar <a href="https://www.python.org/">Python</a></li>
+</ol>
+<h3>Despues</h3>
+<ol>
+<li>Clonar el repositorio mediante git.</li>
+</ol>
+<pre class="prettyprint source lang-bash"><code>git clone https://github.com/IIC3585/2025-1-s1-g1-t1.git
+</code></pre>
+<ol start="2">
+<li>Instalar las dependencias</li>
+</ol>
+<pre class="prettyprint source lang-bash"><code>npm install
+</code></pre></article>
+    </section>
+
 
 
 
@@ -73,7 +202,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Fri Mar 28 2025 09:44:35 GMT-0300 (hora de verano de Chile) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Sun Mar 30 2025 18:53:23 GMT-0300 (Chile Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

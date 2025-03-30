@@ -13,7 +13,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "ramda-fantasy": "^0.8.0"
   },
   "devDependencies": {
     "docdash": "^2.0.2",

@@ -66,8 +66,6 @@ const swap = _.curry((n, m, matrix) =>
 );
 
 export {
-    columnDelete,
-    insertColumn,
     transpose,
     rowsToColumns,
     columnsToRows,
