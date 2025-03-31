@@ -1,5 +1,5 @@
 import { Right} from './either.js'
-import { buildPipeline } from './pipeline.js'
+import { pipe } from './pipeline.js'
 import { parseCSV, toCSV, readCSVFile } from './helper-csv.js'
 import {
     columnsToRows,
@@ -133,7 +133,7 @@ export async function processCSV() {
     
     Right(currentCSVData)
         .map(parseCSV)
-        .map(buildPipeline(...transformations))
+        .map(pipe(...transformations))
         .map(toCSV)
         .fold(
             error => {
