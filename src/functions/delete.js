@@ -25,6 +25,8 @@ const rowDelete = _.curry((index, matrix) =>
   matrix.filter((_, i) => i !== index)
 );
 
+const rowDeleteHead = rowDelete(0);
+const rowDeleteTail = rowDelete(-1);
 
 /**
  * @function columnDelete
@@ -56,4 +58,6 @@ const columnDelete = (n) => (matrix) =>
 export { 
     rowDelete,
     columnDelete,
+    rowDeleteHead,
+    rowDeleteTail,
 };
